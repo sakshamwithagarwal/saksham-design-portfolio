@@ -1,0 +1,144 @@
+.projects .section_container ol {
+  list-style: none;
+  counter-reset: project-counter;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 4em 3em;
+}
+
+.projects .section_container ol a:nth-child(3n) {
+  /* grid-column: 1 / span 2; */
+  aspect-ratio: 2;
+}
+
+.projects .section_container .project {
+  width: 100%;
+  aspect-ratio: 2;
+
+  background-size: cover;
+}
+
+.thumbnail_wrapper,
+.project__thumbnail {
+  width: inherit;
+  aspect-ratio: 1.99;
+  transition: .4s;
+  object-fit: cover;
+}
+
+.thumbnail_wrapper {
+  overflow: hidden;
+  border-radius: 5px;
+  display: flex;
+}
+
+.thumbnail_wrapper:hover .project__thumbnail {
+  scale: 1.1;
+}
+
+.project_container {
+  width: inherit;
+  color: var(--text-main);
+  margin-top: 1em;
+}
+
+.project_container img {
+  width: 100%;
+}
+
+.project__title {
+  font-size: 2.2em;
+  margin: .2em 0;
+  font-weight: 700;
+}
+
+.project__description {
+  font-weight: 300;
+  font-size: 1em;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 90%;
+}
+
+.project__tags {
+  display: flex;
+  list-style: none;
+  gap: 1em;
+  font-size: .7em;
+  margin-top: 1em;
+}
+
+.project__tags>div {
+  border: 1.5px solid var(--text-main);
+  border-radius: 5em;
+
+  /* margin-top: .5rem; */
+  padding: .3em 1em;
+  color: var(--text-main);
+}
+
+@media screen and (max-width: 768px) {
+  .projects .section_container ol {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .projects .section_container ol {
+    grid-template-columns: 1fr;
+    grid-gap: 1.5em;
+  }
+
+  .projects .section_container .project .project_details {
+    font-size: 0.5rem;
+    padding: 0.1em 0.5em;
+  }
+
+  .projects .section_container ol li::before {
+    font-size: 3.5em;
+  }
+
+  .project__tags > div {
+    border-width: 1px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .project_container {
+    margin-top: .8em;
+  }
+
+  .projects .section_container .project .project__title {
+    font-size: 1.3rem;
+    margin: .2em 0;
+  }
+
+  .projects .section_container ol li::before {
+    font-size: 2rem;
+  }
+
+  .project__description {
+    font-size: .8em;
+  }
+
+  .project__tags {
+    font-size: .65em;
+    gap: .6em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects .section_container ol li {
+    padding: 0.6em;
+  }
+}
+
+.model-viewer {
+  width: 100%;
+  min-height: 50vh;
+}
