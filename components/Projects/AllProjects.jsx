@@ -1,17 +1,16 @@
 'use client'
-import React, { useState, useEffect, forwardRef } from "react";
 import Project from "./Project";
 import { motion } from "framer-motion";
 import { portfolioFont } from "@/utils/fonts";
 
-const AllProjects = forwardRef((props, ref) => {
+const AllProjects = (props) => {
   // useEffect(() => {
   //   projectData.sort((a, b) => {
   //     return a.priority - b.priority;
   //   })
   // }, [projectData]);
   return (
-    <section className="projects" ref={ref} id="projects">
+    <section className="projects" id="projects">
       <motion.div
         className={`section_title ${portfolioFont.className}`}
         initial={{ y: 100, opacity: 0 }}
@@ -39,6 +38,6 @@ const AllProjects = forwardRef((props, ref) => {
       </div>
     </section>
   );
-});
+};
 
 export default AllProjects;

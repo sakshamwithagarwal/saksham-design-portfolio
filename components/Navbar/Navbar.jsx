@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { portfolioFont } from "@/utils/fonts";
-import { motion, AnimatePresence, usePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 
 import { HamburgerToggle } from "./HamburgerToggle";
@@ -39,10 +39,10 @@ const Navbar = ({isOpen, setIsOpen}) => {
     menuOpen: { opacity: 1, display: "block" },
     menuClosed: { opacity: 0, display: "none" },
   };
-  const [isPresent, safeToRemove] = usePresence();
-  useEffect(() => {
-    !isPresent && setTimeout(safeToRemove, 1000);
-  }, [isPresent]);
+  // const [isPresent, safeToRemove] = usePresence();
+  // useEffect(() => {
+  //   !isPresent && setTimeout(safeToRemove, 1000);
+  // }, [isPresent]);
 
   // 🎨 Theme Switcher
   const { theme, setTheme } = useTheme();
@@ -73,7 +73,7 @@ const Navbar = ({isOpen, setIsOpen}) => {
                   animate="menuOpen"
                   exit="menuClosed"
                   onClick={() => {
-                    setIsOpen(false);
+                    isOpen ? setIsOpen() : '';
                   }}
                   className={portfolioFont.className}
                 >
