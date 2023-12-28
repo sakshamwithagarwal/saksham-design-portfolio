@@ -7,7 +7,6 @@ import React, {
   useCallback,
   useState,
 } from "react";
-import { useEventListener } from "../../hooks/useEventListener";
 import "./cursor.css";
 import { motion } from "framer-motion";
 
@@ -70,11 +69,21 @@ const Cursor = () => {
   const onMouseEnterViewport = useCallback(() => setIsVisible(true), []);
   const onMouseLeaveViewport = useCallback(() => setIsVisible(false), []);
 
-  useEventListener("mousemove", onMouseMove);
-  useEventListener("mousedown", onMouseDown);
-  useEventListener("mouseup", onMouseUp);
-  useEventListener("mouseover", onMouseEnterViewport);
-  useEventListener("mouseout", onMouseLeaveViewport);
+  useEffect(() => {
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mousedown", onMouseDown);
+    window.addEventListener("mouseup", onMouseUp);
+    window.addEventListener("mouseover", onMouseEnterViewport);
+    window.addEventListener("mouseout", onMouseLeaveViewport);
+
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mousedown", onMouseDown);
+      window.removeEventListener("mouseup", onMouseUp);
+      window.removeEventListener("mouseover", onMouseEnterViewport);
+      window.removeEventListener("mouseout", onMouseLeaveViewport);
+    };
+  }, []);
 
   useEffect(() => {
     if (isActive) {
