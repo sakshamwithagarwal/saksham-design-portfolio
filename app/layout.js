@@ -13,11 +13,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={open_sans.className}>
         <Noise />
-        <Cursor />
+        {typeof window === "undefined" ? <Cursor /> : ""}
         <Background />
         <Provider>
-            <Navbar />
-            {children}
+          <Navbar />
+          {children}
         </Provider>
       </body>
     </html>

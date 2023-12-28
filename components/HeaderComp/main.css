@@ -129,6 +129,12 @@ main p {
   }
 } */
 
+@media screen and (max-width: 768px) {
+  .hero__scroll_arrow {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 703px) {
   main {
     min-height: 90vh;

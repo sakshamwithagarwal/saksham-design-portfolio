@@ -126,12 +126,16 @@ nav .contact_btn {
   overflow-x: hidden;
 }
 
-.nav__list .nav__list-sub-item::after {
+.nav__list .nav__list-sub-item a {
+  position: relative;
+}
+
+.nav__list .nav__list-sub-item a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 2px;
+  height: 1.5px;
   width: 0;
   width: 0%;
   background-color: var(--text-main);
@@ -139,9 +143,9 @@ nav .contact_btn {
   transition: transform .5s ease-out;
 }
 
-.nav__list .nav__list-sub-item:hover::after {
+.nav__list .nav__list-sub-item a:hover::after {
   transform: translateX(0);
-  width: 95%;
+  width: 100%;
 }
 
 .nav__list .nav__list-item:hover {
@@ -157,7 +161,7 @@ nav .contact_btn {
 
 .nav__list ul li {
   font-weight: 700;
-  font-size: max(3rem, min(4vw, 5rem));
+  font-size: max(2.5rem, min(4vw, 5rem));
 }
 
 .nav__list .nav__sublist {
@@ -165,7 +169,7 @@ nav .contact_btn {
   grid-template-columns: repeat(2, 1fr);
   gap: .5rem 0rem;
 
-  margin-left: clamp(3.8rem, 3rem, 4rem);
+  margin-left: clamp(2rem, 1rem, 4rem);
   margin-top: .5rem;
   /* padding-bottom: .5rem; */
 }
@@ -198,7 +202,7 @@ nav .contact_btn {
 
 @media screen and (max-width: 576px) {
   .nav__list .listIcon {
-    width: 1.5rem;
+    width: 1rem;
     height: auto;
   }
 
@@ -221,8 +225,9 @@ nav .contact_btn {
   }
 
   .nav__list.active {
-    padding-left: 3em;
+    padding-left: 1em;
     min-height: 60vh;
+    margin-top: 12em;
   }
 
   .nav__sublist .listIcon {

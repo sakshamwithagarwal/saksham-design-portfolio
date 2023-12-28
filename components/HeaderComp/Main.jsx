@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import "./main.css";
 import { motion } from "framer-motion";
@@ -139,37 +139,36 @@ const Main = ({ compRef }) => {
           music and comics in order to create designs that provide a harmonious
           and consistent user experience for others.
         </motion.p>
-        <Link href={'#projects'}>
-        <div className="hero__scroll_arrow" >
-          <motion.div
-            className="hero__scroll-arrow-circle"
-            whileHover={{ scale: [null, 1.25, 1.2] }}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: .5, delay: 0.05 }}
-          ></motion.div>
-          <motion.svg
-            width="93"
-            height="74"
-            viewBox="0 0 93 74"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="link"
-          >
-            {/* <circle cx={0} cy={0} r={100} stroke="white" strokeWidth={1} /> */}
-            <path
-              d="M46.0053 0.683594V73.3168M92.2717 26.4772L46.1196 73.3167L1.23145 26.0555"
-              stroke="white"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </motion.svg>
-        </div>
+        <Link href={"#projects"}>
+            <div className="hero__scroll_arrow">
+              <motion.div
+                className="hero__scroll-arrow-circle"
+                whileHover={{ scale: [null, 1.25, 1.2] }}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.05 }}
+              ></motion.div>
+              <motion.svg
+                width="93"
+                height="74"
+                viewBox="0 0 93 74"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+                className="link"
+              >
+                {/* <circle cx={0} cy={0} r={100} stroke="white" strokeWidth={1} /> */}
+                <path
+                  d="M46.0053 0.683594V73.3168M92.2717 26.4772L46.1196 73.3167L1.23145 26.0555"
+                  stroke="white"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </motion.svg>
+            </div>
         </Link>
-        
       </div>
     </main>
   );

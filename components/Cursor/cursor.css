@@ -31,3 +31,9 @@
 .cursor__ball {
     background-color: #f1ede8;
 }
+
+@media screen and (max-width: 768px) {
+    .cursor__ball {
+        display: none;
+    }
+}

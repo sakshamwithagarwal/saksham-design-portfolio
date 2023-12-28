@@ -90,7 +90,7 @@ const Navbar = ({isOpen, setIsOpen}) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     onClick={() => {
-                      setIsOpen(false);
+                      isOpen ? setIsOpen() : '';
                     }}
                   >
                     <path
