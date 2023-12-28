@@ -7,7 +7,6 @@ import React, {
   useCallback,
   useState,
 } from "react";
-import { useEventListener } from "../../hooks/useEventListener";
 import "./cursor.css";
 import { motion } from "framer-motion";
 
