@@ -18,8 +18,6 @@ const Provider = ({ children }) => {
 
   if (!mounted) return <>{children}</>;
 
-  console.log(newElement);
-
   return (
     <ThemeProvider>
       <AnimatePresence mode="wait">
