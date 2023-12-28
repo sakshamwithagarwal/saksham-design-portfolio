@@ -59,7 +59,6 @@ const ExpandedProject = ({project}) => {
             className="project-content-container"
             dangerouslySetInnerHTML={{ __html: project.projectContent.html }}
           ></m.div>
-
           <div className="project-next"></div>
         </m.div>
       ) : (

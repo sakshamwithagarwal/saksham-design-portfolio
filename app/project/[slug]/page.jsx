@@ -1,49 +1,41 @@
 // 'use client'
 // import { useEffect } from "react";
 // import locomotiveScroll from "locomotive-scroll";
-import { motion as m } from "framer-motion";
 import "./project.css";
 import ExpandedProject from "./ExpandedProject";
+import request from "graphql-request";
 
 async function getProject(params) {
-  const res = await fetch("https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: `query Projects($slug: String!) {
-        projects(where: { slug: $slug }) {
-          id
-          projectName
-          projectDescription
-          projectThumbnail {
-            url
-          }
-          tags
-          slug
-          projectContent {
-            html
-          }
+  const projectQuery = {
+    PROJECT_QUERY: `
+    {
+      project(where: {slug: "${params.slug}"}) {
+        id
+        projectName
+        projectThumbnail {
+          url
         }
-      }`,
-      variables: {
-        slug: params.slug
+        slug
+        projectContent {
+          html
+        }
       }
-    })
-  })
+    }
+  `,
+    endPointURL:
+      "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
+  };
 
-  const data = await res.json();
-  console.log('project',data.data);
-  return data.data.projects[0];
+  const { project } = await request(projectQuery.endPointURL, projectQuery.PROJECT_QUERY)
+
+  // console.log('project datatatatta', project);
+  return project;
 }
 
 const Project = async ( { params } ) => {
   console.log('slug',params);
   
-  const project = await getProject(params);
-  // console.log(project);
-  
+  const project = await getProject(params);  
 
   return (
     <>

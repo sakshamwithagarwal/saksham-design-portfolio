@@ -1,45 +1,39 @@
-import { AllProjects, Collections, Main } from '@/components'
+import { AllProjects, Collections, Main } from "@/components";
+import { request } from "graphql-request";
 
 async function getProjects() {
-  const res = await fetch(
-    "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: `
-        query Projects {
-          projects {
-            id
-            projectName
-            projectDescription
-            projectThumbnail {
-              url
-            }
-            tags
-            slug
-            projectContent {
-              html
-            }
-          }
-        }
-        `
-      }),
+  const { projects } = await request("https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
+  `
+  query Projects {
+    projects {
+      id
+      projectName
+      projectDescription
+      projectThumbnail {
+        url
+        height
+        width
+        fileName
+      }
+      tags
+      slug
+      projectContent {
+        html
+      }
     }
-  );
-  const data = await res.json();
-  return data.data.projects;
+  }
+  `);
+
+  return projects;
 }
 
 export default async function Home() {
-  const projectsData = await getProjects();
+  const projectsData = await getProjects()
   return (
     <div>
       <Main />
       <AllProjects projects={projectsData} />
       <Collections />
     </div>
-  )
+  );
 }

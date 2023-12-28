@@ -26,6 +26,12 @@
   object-fit: cover;
 }
 
+.project__thumbnail {
+  object-fit: cover;
+  /* border: 1px solid white; */
+  aspect-ratio: 1.99;
+}
+
 .thumbnail_wrapper {
   overflow: hidden;
   border-radius: 5px;

@@ -1,12 +1,17 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import "./project.css";
 import { motion, useInView } from "framer-motion";
 import { open_sans, portfolioFont } from "@/utils/fonts";
+import Image from "next/image";
 
 const Project = ({ data }) => {
   const [isTouched, setIsTouched] = useState(false);
+
+  const myLoader=({src})=>{
+    return data.projectThumbnail.url;
+  }  
 
   const handleTouchStart = () => {
     setIsTouched(true);
@@ -22,14 +27,14 @@ const Project = ({ data }) => {
 
   const variants = {
     visible: { opacity: 1 },
-    hidden: { opacity: 0 }
+    hidden: { opacity: 0 },
   };
 
   return (
     <Link href={`/project/${data.slug}`}>
       <motion.li
         className="project hoverable"
-        viewport={{once: true}}
+        viewport={{ once: true }}
         transition={{ duration: 0.3 }}
         variants={variants}
         initial="hidden"
@@ -37,16 +42,29 @@ const Project = ({ data }) => {
         whileInView={"visible"}
       >
         <div className="thumbnail_wrapper">
-          <img src={data.projectThumbnail.url} alt="" className="project__thumbnail" />
+          <img src={data.projectThumbnail.url} alt={data.projectThumbnail.fileName} className="project__thumbnail" />
+          {/* <Image
+            loader={myLoader}
+            src={data.projectThumbnail.url}
+            className="project__thumbnail"
+            alt={data.projectThumbnail.fileName}
+            width={data.projectThumbnail.width}
+            height={data.projectThumbnail.height}
+          /> */}
         </div>
         <div className="project_container">
-          <div className={`project__title ${portfolioFont.className}`}> {data.projectName} </div>
+          <div className={`project__title ${portfolioFont.className}`}>
+            {" "}
+            {data.projectName}{" "}
+          </div>
           <p className={`project__description ${portfolioFont.className}`}>
             {data.projectDescription}
           </p>
           <div className={`project__tags ${open_sans.className}`}>
             {data.tags.map((tag) => (
-              <div className="project_tag" key={tag}>{tag}</div>
+              <div className="project_tag" key={tag}>
+                {tag}
+              </div>
             ))}
           </div>
         </div>
