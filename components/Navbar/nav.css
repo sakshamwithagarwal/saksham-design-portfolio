@@ -218,6 +218,7 @@ nav .contact_btn {
   .nav__toggle .nav_hamburger {
     height: 2.5em;
     width: 3em;
+    scale: .85;
   }
 
   .burger {

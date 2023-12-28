@@ -28,3 +28,9 @@
   block-size: 100%;
   stroke-linecap: round;
 }
+
+@media screen and (max-width: 576px) {
+  .theme-toggle {
+    --size: 2em;
+  }
+}
