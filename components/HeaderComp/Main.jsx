@@ -74,7 +74,7 @@ const Main = ({ compRef }) => {
               animate={animation.animate}
               transition={animation.transition}
             >
-              Interac
+              Packag
             </motion.span>
             <motion.span
               animate={animation.animate}
@@ -102,7 +102,7 @@ const Main = ({ compRef }) => {
                 animate={animation.animate}
                 transition={animation.transition}
               >
-                tion
+                ing
               </motion.span>
               <motion.span
                 animate={animation.animate}
