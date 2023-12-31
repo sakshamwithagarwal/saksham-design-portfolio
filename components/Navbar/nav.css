@@ -201,13 +201,17 @@ nav .contact_btn {
 }
 
 @media screen and (max-width: 576px) {
+  nav ul li:has(.right_list) {
+    margin-bottom: 0.7em;
+  }
+
   .nav__list .listIcon {
     width: 1rem;
     height: auto;
   }
 
   .logo svg {
-    width: 50px;
+    width: 150px;
     margin-top: .1em;
   }
 

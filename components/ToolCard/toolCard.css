@@ -1,0 +1,135 @@
+[data-theme="dark"] .toolCard {
+    --icon-color: #303030;
+    --icon-color-main: #303030;
+}
+
+.toolCard {
+    --icon-color: #E0D8D0;
+    --icon-color-main: #E0D8D0;
+    border: 1px solid;
+    border-radius: 0.9rem;
+    padding: 1.5rem 2rem;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: space-between;
+    /* animation-timing-function: ease-in-out;
+    animation-duration: 300ms; */
+    /* position: relative; */
+}
+
+.tool__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.tool__subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.tool__icon {
+    position: relative;
+    width: 30%;
+}
+
+.toolCard:hover {
+    --icon-color-main: #2B2B2B;
+    --icon-color: #2B2B2B;
+}
+
+[data-theme="dark"] .toolCard:hover {
+    --icon-color-main: #818181;
+    --icon-color: #818181;
+}
+
+.tool__icon svg {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    transform: rotate(17deg);
+    /* transition: .3s; */
+    /* transform-origin: bottom left; */
+    width: 70px;
+    transition: transform 300ms ease-in-out, margin-top 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.toolCard:hover .tool__icon svg {
+    transform: rotate(0deg);
+    margin-top: -27px;
+}
+
+@media screen and (max-width: 1024px) {
+    .toolCard {
+        padding: 1.2rem 1.4rem;
+    }
+
+    .tool__title {
+        font-size: 1.8rem;
+    }
+
+    .tool__subtitle {
+        font-size: 1.4rem;
+    }
+
+    .tool__icon svg {
+        width: 65px;
+    }
+
+    .tools__wrapper {
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* .toolCard {
+        padding: 1.5rem 1.8rem;
+    } */
+    /* 
+    .tool__icon svg {
+        scale: .5;
+        top: -18px;
+    } */
+
+
+}
+
+@media screen and (max-width: 576px) {
+    .toolCard {
+        padding: .5rem .8rem;
+    }
+
+    .tool__title {
+        font-size: 1.2rem;
+    }
+
+    .tool__subtitle {
+        font-size: .8rem;
+    }
+
+    .tool__icon svg {
+        width: 40px;
+    }
+
+    .toolCard:hover .tool__icon svg {
+        margin-top: -30px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .tool__title {
+        font-size: 1rem;
+    }   
+
+    .tool__subtitle {
+        font-size: .7rem;
+    }
+
+    .tool__icon svg {
+        width: 30px;
+    }
+
+    .toolCard:hover .tool__icon svg {
+        margin-top: -37px;
+    }
+}

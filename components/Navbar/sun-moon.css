@@ -31,7 +31,7 @@
   }
 }
 
-@media (--motionOK) {
+@media (prefers-reduced-motion: no-preference) {
   .sun-and-moon>.sun {
     transition: transform 0.5s var(--ease-elastic-3);
   }

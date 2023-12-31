@@ -21,6 +21,7 @@ main {
 .hero__content {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .hero__scroll_arrow {

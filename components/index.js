@@ -6,3 +6,4 @@ export {default as Project} from "./Projects/Project"
 export {default as AllProjects} from './Projects/AllProjects'
 export {default as Collections} from './Collections/Collections'
 export {default as Cursor} from './Cursor/Cursor'
+export {default as ToolCard} from './ToolCard/ToolCard'
