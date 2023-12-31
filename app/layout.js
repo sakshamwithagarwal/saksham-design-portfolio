@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Background, Cursor, Navbar, Noise } from "@/components";
+import { Background, Cursor, Footer, Navbar, Noise } from "@/components";
 import { open_sans } from "@/utils/fonts";
 import Provider from "./provider";
 
@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
         </Provider>
+          {/* <Footer /> */}
       </body>
     </html>
   );

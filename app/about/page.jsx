@@ -1,8 +1,8 @@
-import { portfolioFont } from "@/utils/fonts";
+import { open_sans, portfolioFont } from "@/utils/fonts";
 import Link from "next/link";
 import Image from "next/image";
 import "./about.css";
-import picture from "./about_me.jpg";
+import picture from "./about_me.png";
 import { ToolCard } from "@/components";
 import { tools_list } from "@/constants/tools";
 
@@ -15,18 +15,20 @@ const About = () => {
             <h1>Saksham.</h1>
             <h3>B.Des. | Product & Packaging Designer</h3>
           </div>
-          <h2>About</h2>
-          <p>
+          <div className="section_title">
+            <h3>About</h3>
+          </div>
+          <p className={open_sans.className}>
             Hey, my name is <span>Saksham Parag Agarwal</span>. I&apos;m 21 and
             I am a <span>Product & Packaging Designer</span>. I create designs
             that are both sustainable and universal. Supporter for right to
             repair & sustainability, my goal is to infuse a more eco-conscious
-            approach into design. I draw inspiration from music and comics.
+            approach into design.
           </p>
-          <p>
-            The intersection of music and comics serves as a catalyst for
-            creating captivating designs that aim to make a positive impact on
-            the design world.
+          <p className={open_sans.className}>
+            I draw inspiration from music and comics. The intersection of music
+            and comics serves as a catalyst for creating captivating designs
+            that aim to make a positive impact on the design world.
           </p>
           <Link href={"/"} className="resume-btn">
             {" "}

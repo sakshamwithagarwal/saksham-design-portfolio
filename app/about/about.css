@@ -12,26 +12,31 @@
     /* min-height: 70vh; */
     /* display: grid; */
     place-content: center;
-    margin: 4rem 0;
+    margin: 2rem 0 4rem;
 }
 
 .about__header {
     margin-bottom: 3rem;
 }
 
+.about__header h3,
+.about__content p {
+    font-weight: 400;
+}
+
 .about__header h1 {
-    font-size: 9rem;
+    font-size: 8rem;
     line-height: 1;
     color: var(--text-main);
 }
 
 .about__header h3 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .about__content {
-    flex: 1 1 40%;
-    min-height: 80vh;
+    width: 43vw;
+    /* flex: 1.5 1.5 30vw; */
 }
 
 .about__content h2,
@@ -66,20 +71,22 @@
     gap: 11rem;
     /* flex-direction: row-reverse; */
     justify-content: space-between;
+    min-height: 90vh;
 }
 
 .about__picture {
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 1.5rem;
     width: 100%;
     height: 100%;
 }
 
 .about__picture-wrapper {
     position: relative;
-    width: 20%;
-    flex: 1 0 20%;
-    height: 70vh;
+    width: 29vw;
+    /* flex: 1 1 15vw; */
+    height: 100%;
+    /* border: 1px solid; */
 }
 
 .now__streaming-wrapper {
@@ -116,11 +123,12 @@
 
 [data-theme="dark"] .music__text {
     mix-blend-mode: difference;
-    
+
 }
 
 .resume-btn {
     position: relative;
+    /* margin-top: 2rem; */
 }
 
 .resume-btn:after {
@@ -148,8 +156,8 @@
 
 .scroll-down-btn div {
     border-radius: 0rem 0rem 0.3125rem 0rem;
-    border-right: 4px solid #777;
-    border-bottom: 4px solid #777;
+    border-right: 3px solid #777;
+    border-bottom: 3px solid #777;
     width: 1.2rem;
     height: 1.2rem;
     transform: rotate(45deg);
@@ -201,6 +209,10 @@
 
     .about {
         margin-top: 1rem;
+    }
+
+    .about__content {
+        width: 100%;
     }
 
     .about__header {
@@ -257,12 +269,12 @@
     }
 
     .music__text {
-        width: 130px;
+        width: 13rem;
     }
 
     .now__streaming-wrapper {
-        left: -30px;
-        top: -70px;
+        left: -40px;
+        top: -35px;
     }
 
 }
@@ -295,12 +307,12 @@
     }
 
     .music__text {
-        width: 80px;
+        width: 8rem;
     }
 
     .now__streaming-wrapper {
-        top: -90px;
-        left: -15px;
+        top: -73px;
+        left: -16px;
     }
 }
 
