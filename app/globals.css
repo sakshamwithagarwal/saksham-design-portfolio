@@ -13,6 +13,13 @@
   --grey: #c9c8c9;
   --text-main: #272421;
   --text-darker: #2b2b2b;
+
+  --mobile-sm: 425px;
+  --mobile-md: 576px;
+  --tablet-md: 768px;
+  --tablet-lg: 1024px;
+  --laptop-md: 1560px;
+  --laptop-lg: 1921px;
 }
 
 @font-face {

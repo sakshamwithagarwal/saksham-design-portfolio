@@ -23,6 +23,7 @@ const Provider = ({ children }) => {
       <AnimatePresence mode="wait">
         {newElement}
         {isOpen ? <></> : children[1]}
+        { children[2]}
       </AnimatePresence>
     </ThemeProvider>
   );
