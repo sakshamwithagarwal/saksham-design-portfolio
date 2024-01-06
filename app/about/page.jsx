@@ -6,7 +6,7 @@ const About = async () => {
   const song = await getNowPlaying();
   const albumImageUrl = song.item.album.images[0].url;
   const songUrl = song.item.external_urls.spotify;
-  // console.log(albumImageUrl, songUrl);
+  // console.log(song);
   return <AboutCL songURL={songUrl} albumArt={albumImageUrl} />
 };
 

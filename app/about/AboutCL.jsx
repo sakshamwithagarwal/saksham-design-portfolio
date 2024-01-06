@@ -88,8 +88,8 @@ const AboutCL = ({songURL, albumArt}) => {
                 <path
                   d="M1 14L14 1M14 1H4.3742M14 1V10.5996"
                   stroke="var(--text-main)"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
+                  strokeWidth="2"
+                  strokeMiterlimit="10"
                 />
               </svg>
               View Résumé
