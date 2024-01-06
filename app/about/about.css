@@ -12,7 +12,7 @@
     /* min-height: 70vh; */
     /* display: grid; */
     place-content: center;
-    margin: clamp(1rem, 2vw + 1rem, 2.5rem) 0 4rem;
+    margin: clamp(1.5rem, 3vw + 1rem, 4rem) 0 4rem;
 }
 
 .about .section_title {
@@ -41,7 +41,7 @@
 }
 
 .about__content {
-    width: 40vw;
+    width: 75%;
     /* flex: 1.5 1.5 30vw; */
 }
 
@@ -72,9 +72,13 @@
     color: #818181;
 }
 
+.about p {
+    width: 42vw;
+}
+
 .about___content-wrapper {
     display: flex;
-    gap: 11rem;
+    /* gap: 11rem; */
     /* flex-direction: row-reverse; */
     justify-content: space-between;
     min-height: 90vh;
@@ -89,48 +93,12 @@
 
 .about__picture-wrapper {
     position: relative;
-    width: 27vw;
+    width: 25%;
     /* flex: 1 1 15vw; */
-    height: 100%;
+    max-height: 70vh;
     /* border: 1px solid; */
 }
 
-.now__streaming-wrapper {
-    position: absolute;
-    transform-origin: center;
-    top: -107.5px;
-    left: -75px;
-}
-
-@keyframes spin {
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@-moz-keyframes spin {
-    100% {
-        -moz-transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes spin {
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-.music__text {
-    width: 150px;
-    animation: spin 10s linear infinite;
-    -webkit-animation: spin 10s linear infinite;
-    -moz-animation: spin 10s linear infinite;
-}
-
-[data-theme="dark"] .music__text {
-    mix-blend-mode: difference;
-
-}
 
 .resume-btn {
     position: relative;
@@ -225,7 +193,6 @@
 @media screen and (max-width: 1024px) {
     .about___content-wrapper {
         flex-direction: column-reverse;
-        gap: 2rem;
     }
 
     .tools__grid {
@@ -233,7 +200,7 @@
     }
 
     .about {
-        margin-top: 1rem;
+        margin-top: 2rem;
     }
 
     .about__content {
@@ -293,14 +260,14 @@
         gap: 2rem;
     }
 
-    .music__text {
+    /* .music__text {
         width: 13rem;
     }
 
     .now__streaming-wrapper {
         left: -40px;
         top: -35px;
-    }
+    } */
 
 }
 
@@ -329,15 +296,6 @@
 
     .tools__grid {
         gap: 1rem;
-    }
-
-    .music__text {
-        width: 8rem;
-    }
-
-    .now__streaming-wrapper {
-        top: -73px;
-        left: -16px;
     }
 }
 

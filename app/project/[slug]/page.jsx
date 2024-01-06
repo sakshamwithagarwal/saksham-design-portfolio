@@ -36,7 +36,7 @@ async function getProject(params) {
 }
 
 const Project = async ({ params }) => {
-  console.log("slug", params);
+  // console.log("slug", params);
 
   const project = await getProject(params);
   return <ExpandedProject project={project} />;

@@ -74,7 +74,6 @@
 
 .contact__wrapper {
     display: flex;
-    /* grid-template-columns: 1.5fr .6fr; */
 }
 
 .contact__wrapper-inner {
@@ -86,48 +85,11 @@
     width: 25%;
 }
 
-.contact_picture__wrapper .now__streaming-wrapper {
-    position: absolute;
-    transform-origin: center;
-    top: -107.5px;
-    left: -75px;
-}
-
-[data-theme="dark"] .music__text {
-    mix-blend-mode: difference;
-
-}
-
-@keyframes spin {
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@-moz-keyframes spin {
-    100% {
-        -moz-transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes spin {
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-.music__text {
-    width: 150px;
-    animation: spin 10s linear infinite;
-    -webkit-animation: spin 10s linear infinite;
-    -moz-animation: spin 10s linear infinite;
-}
-
 .contact_picture {
     width: 100%;
     object-fit: cover;
     max-height: 70vh;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -144,15 +106,6 @@
         width: 100%;
     }
 
-    .contact_picture__wrapper .music__text {
-        width: 13rem;
-    }
-
-    .contact_picture__wrapper .now__streaming-wrapper {
-        left: -40px;
-        top: -35px;
-    }
-
     .contact_picture {
         max-height: 60vh;
         border-radius: 1.5rem;
@@ -165,12 +118,4 @@
 }
 
 @media screen and (max-width: 576px) {
-    .contact_picture__wrapper .music__text {
-        width: 8rem;
-    }
-
-    .contact_picture__wrapper .now__streaming-wrapper {
-        top: -73px;
-        left: -16px;
-    }
 }
