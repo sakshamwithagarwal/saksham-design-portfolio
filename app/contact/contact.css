@@ -93,6 +93,11 @@
     left: -75px;
 }
 
+[data-theme="dark"] .music__text {
+    mix-blend-mode: difference;
+
+}
+
 @keyframes spin {
     100% {
         transform: rotate(360deg);
