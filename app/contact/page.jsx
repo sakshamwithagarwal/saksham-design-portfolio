@@ -25,6 +25,15 @@ const Contact = () => {
       y: 0,
     },
   };
+  const listVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 1 },
+    },
+  };
   return (
     <m.div
       className={`contact ${portfolioFont.className}`}
@@ -63,34 +72,22 @@ const Contact = () => {
               Visit me at
             </m.h2>
             <m.ul
-            // initial={{ y: 150 }}
-            // animate={{ y: 0 }}
-            // exit={{ y: 150 }}
-            // transition={{ duration: 0.25, delay: 0.45, ease: "easeOut" }}
+              variants={listVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
             >
-              <m.li
-                variants={itemVariants}
-                initial={"hidden"}
-                animate={"visible"}
-              >
+              <m.li variants={itemVariants}>
                 <Link href={"https://www.behance.net/sakshamwithagarwal"}>
                   <ListIconComp className="icon" /> Behance
                 </Link>
               </m.li>
-              <m.li
-                variants={itemVariants}
-                initial={"hidden"}
-                animate={"visible"}
-              >
+              <m.li variants={itemVariants}>
                 <Link href={"https://www.instagram.com/sakshamwithagarwal"}>
                   <ListIconComp className="icon" /> Instagram
                 </Link>
               </m.li>
-              <m.li
-                variants={itemVariants}
-                initial={"hidden"}
-                animate={"visible"}
-              >
+              <m.li variants={itemVariants}>
                 <Link
                   href={
                     "https://www.linkedin.com/in/saksham-parag-agarwal-b063711b3"
@@ -99,11 +96,7 @@ const Contact = () => {
                   <ListIconComp className="icon" /> LinkedIn
                 </Link>
               </m.li>
-              <m.li
-                variants={itemVariants}
-                initial={"hidden"}
-                animate={"visible"}
-              >
+              <m.li variants={itemVariants}>
                 <Link href={"mailto:sakshamwithagarwal@gmail.com"}>
                   <ListIconComp className="icon" /> Mail
                 </Link>

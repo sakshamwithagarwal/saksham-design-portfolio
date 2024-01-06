@@ -72,10 +72,10 @@ const About = () => {
           </m.p>
           <Link href={"/"} className="resume-btn">
             <m.span
-              initial={{ y: 250 }}
+              initial={{ y: 550 }}
               animate={{ y: 0 }}
-              exit={{ y: 250 }}
-              transition={{ duration: 0.25, delay: 0.75, ease: "easeOut" }}
+              exit={{ y: 550 }}
+              transition={{ duration: 1, delay: 5, ease: "easeOut" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
