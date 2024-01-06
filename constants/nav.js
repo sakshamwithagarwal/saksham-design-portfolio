@@ -13,18 +13,18 @@ export const listItem = [
     title: "Collections",
     url: "/#collections",
     sublist: [
-      {
-        title: "Posters",
-        url: "/collection",
-      },
-      {
-        title: "3D Renders",
-        url: "/collection",
-      },
-      {
-        title: "User Interface",
-        url: "/collection",
-      },
+      // {
+      //   title: "Posters",
+      //   url: "/collection",
+      // },
+      // {
+      //   title: "3D Renders",
+      //   url: "/collection",
+      // },
+      // {
+      //   title: "User Interface",
+      //   url: "/collection",
+      // },
     ],
   },
   {
@@ -35,19 +35,19 @@ export const listItem = [
   {
     title: "Contact",
     sublist: [
-      {
-        title: "Instagram",
-        url: "https://www.instagram.com/sakshamwithagarwal",
-      },
-      {
-        title: "Behance",
-        url: "https://www.behance.net/sakshamwithagarwal",
-      },
-      {
-        title: "LinkedIn",
-        url: "https://www.linkedin.com/in/saksham-parag-agarwal-b063711b3",
-      },
+      // {
+      //   title: "Instagram",
+      //   url: "https://www.instagram.com/sakshamwithagarwal",
+      // },
+      // {
+      //   title: "Behance",
+      //   url: "https://www.behance.net/sakshamwithagarwal",
+      // },
+      // {
+      //   title: "LinkedIn",
+      //   url: "https://www.linkedin.com/in/saksham-parag-agarwal-b063711b3",
+      // },
     ],
-    url: "/",
+    url: "/contact",
   },
 ];
