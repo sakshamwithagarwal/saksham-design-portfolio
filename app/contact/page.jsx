@@ -12,7 +12,7 @@ const Contact = () => {
         <div className="contact__wrapper-inner">
           <div className="contact__intro">
             <h1>Hello.</h1>
-            <p>I'd Love to hear from you.</p>
+            <p>I&apos;d Love to hear from you.</p>
           </div>
           <div className="contact__socials">
             <h2>Visit me at</h2>
