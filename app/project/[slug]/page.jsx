@@ -26,24 +26,20 @@ async function getProject(params) {
       "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
   };
 
-  const { project } = await request(projectQuery.endPointURL, projectQuery.PROJECT_QUERY)
+  const { project } = await request(
+    projectQuery.endPointURL,
+    projectQuery.PROJECT_QUERY
+  );
 
   // console.log('project datatatatta', project);
   return project;
 }
 
-const Project = async ( { params } ) => {
-  console.log('slug',params);
-  
-  const project = await getProject(params);  
+const Project = async ({ params }) => {
+  console.log("slug", params);
 
-  return (
-    <>
-    <ExpandedProject project={project}/>
-    </>
-  );
+  const project = await getProject(params);
+  return <ExpandedProject project={project} />;
 };
 
 export default Project;
-
-

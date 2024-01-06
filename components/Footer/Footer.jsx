@@ -23,30 +23,9 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            &copy;2024 Saksham Parag Agarwal
+            All Rights Reserved &copy;2024 Saksham Parag Agarwal
           </m.p>
-          <m.p
-            initial={{ y: -100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            exit={{ y: -100, opacity: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            All Rights Reserved
-          </m.p>
-          <m.p
-            initial={{ y: -100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            exit={{ y: -100, opacity: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <Link href="mailto:sakshamparag@gmail.com">
-              sakshamparag@gmail.com
-            </Link>
-          </m.p>
-        </div>
-        <div className="footer__wrapper">
+
           <m.p
             initial={{ y: -100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}

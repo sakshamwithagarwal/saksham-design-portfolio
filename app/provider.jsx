@@ -13,8 +13,10 @@ const Provider = ({ children }) => {
 
   const newElement = React.cloneElement(children[0], {
     isOpen: isOpen,
-    setIsOpen: () => {setIsOpen(!isOpen)}
-  })
+    setIsOpen: () => {
+      setIsOpen(!isOpen);
+    },
+  });
 
   if (!mounted) return <>{children}</>;
 
@@ -22,8 +24,13 @@ const Provider = ({ children }) => {
     <ThemeProvider>
       <AnimatePresence mode="wait">
         {newElement}
-        {isOpen ? <></> : children[1]}
-        { children[2]}
+        {isOpen ? (
+          <></>
+        ) : (
+          <>
+            {children[1]} {children[2]}
+          </>
+        )}
       </AnimatePresence>
     </ThemeProvider>
   );

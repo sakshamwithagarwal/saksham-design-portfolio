@@ -106,7 +106,7 @@ nav .contact_btn {
   align-items: center;
 
   width: 100%;
-  min-height: 100vh;
+  min-height: 89vh;
   padding-left: 10rem;
 
   position: absolute;
@@ -128,6 +128,32 @@ nav .contact_btn {
 
 .nav__list .nav__list-sub-item a {
   position: relative;
+}
+
+.nav__list .listitem-inner {
+  overflow-x: hidden;
+}
+
+.nav__list .listitem-inner a {
+  position: relative;
+}
+
+.nav__list .listitem-inner a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1.5px;
+  width: 0;
+  width: 0%;
+  background-color: var(--text-main);
+  transform: translateX(-101%);
+  transition: transform .5s ease-out;
+}
+
+.nav__list .listitem-inner a:hover::after {
+  transform: translateX(0);
+  width: 100%;
 }
 
 .nav__list .nav__list-sub-item a::after {
@@ -201,9 +227,9 @@ nav .contact_btn {
 }
 
 @media screen and (max-width: 576px) {
-  nav ul li:has(.right_list) {
+  /* nav ul li:has(.right_list) {
     margin-bottom: 0.7em;
-  }
+  } */
 
   .nav__list .listIcon {
     width: 1rem;
@@ -211,7 +237,7 @@ nav .contact_btn {
   }
 
   .logo svg {
-    width: 150px;
+    /* width: 150px; */
     margin-top: .1em;
   }
 

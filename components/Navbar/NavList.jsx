@@ -63,35 +63,25 @@ const NavList = ({ toggle }) => {
         {listItem.map((item) => {
           return (
             <li key={item.title}>
-              {item.sublist.length >= 1 ? (
-                <motion.div className="listitem-inner" variants={itemVariants}>
+              <motion.div className="listitem-inner" variants={itemVariants}>
+                <Link href={item.url} onClick={toggle}>
                   <ListIconComp className="icon" /> {item.title}
-                  <ul className="nav__sublist">
-                    {item.sublist.map((subItem) => (
-                      <motion.li
-                        variants={itemVariants}
-                        className="nav__list-sub-item"
-                        key={subItem.title}
-                        onClick={toggle}
-                      >
-                        <Link href={subItem.url}>
-                          <ListIconComp className="icon" /> {subItem.title}
-                        </Link>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ) : (
-                <motion.div
-                  className="listitem-inner"
-                  onClick={toggle}
-                  variants={itemVariants}
-                >
-                  <Link href={item.url}>
-                    <ListIconComp className="icon" /> {item.title}
-                  </Link>
-                </motion.div>
-              )}
+                </Link>
+                <ul className="nav__sublist">
+                  {item.sublist.map((subItem) => (
+                    <motion.li
+                      variants={itemVariants}
+                      className="nav__list-sub-item"
+                      key={subItem.title}
+                      onClick={toggle}
+                    >
+                      <Link href={subItem.url}>
+                        <ListIconComp className="icon" /> {subItem.title}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
             </li>
           );
         })}

@@ -10,7 +10,7 @@ footer {
     border-top: 1px solid #606065;
     position: absolute;
     left: -5vw;
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     background: #121217;
     width: 100vw;
@@ -18,14 +18,15 @@ footer {
 }
 
 .footer__wrapper {
-    width: 50%;
+    /* width: 50%; */
+    text-align: center;
 }
 
-.footer__wrapper:last-of-type {
+.footer__wrapper {
     margin-left: 5vw;
 }
 
-.footer__wrapper:last-of-type a {
+.footer__wrapper a {
     color: #F15412;
     text-decoration: underline;
 }
@@ -52,7 +53,7 @@ footer {
         width: 100%;
     }
 
-    .footer__wrapper:last-of-type {
+    .footer__wrapper {
         margin-left: 0;
         margin-top: 2rem;
     }
