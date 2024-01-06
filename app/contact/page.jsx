@@ -1,33 +1,96 @@
+"use client";
 import { portfolioFont } from "@/utils/fonts";
 import "./contact.css";
 import ListIconComp from "./ListIconComp";
 import Link from "next/link";
 import Image from "next/image";
 import picture from "./contact.jpg";
+import { motion as m } from "framer-motion";
 
 const Contact = () => {
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      transition: {
+        striffness: 300,
+        damping: 24,
+        transitionEnd: { y: 75 },
+        type: "spring",
+      },
+      y: 150,
+    },
+    visible: {
+      opacity: 1,
+      transition: { mass: 0.1, restDelta: 0.00001, type: "spring", delay: 0.5 },
+      y: 0,
+    },
+  };
   return (
-    <div className={`contact ${portfolioFont.className}`}>
+    <m.div
+      className={`contact ${portfolioFont.className}`}
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 100 }}
+      transition={{ duration: 0.25, delay: 0.25, ease: "easeOut" }}
+    >
       <div className="contact__wrapper">
         <div className="contact__wrapper-inner">
           <div className="contact__intro">
-            <h1>Hello.</h1>
-            <p>I&apos;d Love to hear from you.</p>
+            <m.h1
+              initial={{ y: 150 }}
+              animate={{ y: 0 }}
+              exit={{ y: 150 }}
+              transition={{ duration: 0.25, delay: 0.25, ease: "easeOut" }}
+            >
+              Hello.
+            </m.h1>
+            <m.p
+              initial={{ y: 150 }}
+              animate={{ y: 0 }}
+              exit={{ y: 150 }}
+              transition={{ duration: 0.25, delay: 0.35, ease: "easeOut" }}
+            >
+              I&apos;d Love to hear from you.
+            </m.p>
           </div>
           <div className="contact__socials">
-            <h2>Visit me at</h2>
-            <ul>
-              <li>
+            <m.h2
+              initial={{ y: 150 }}
+              animate={{ y: 0 }}
+              exit={{ y: 150 }}
+              transition={{ duration: 0.25, delay: 0.45, ease: "easeOut" }}
+            >
+              Visit me at
+            </m.h2>
+            <m.ul
+            // initial={{ y: 150 }}
+            // animate={{ y: 0 }}
+            // exit={{ y: 150 }}
+            // transition={{ duration: 0.25, delay: 0.45, ease: "easeOut" }}
+            >
+              <m.li
+                variants={itemVariants}
+                initial={"hidden"}
+                animate={"visible"}
+              >
                 <Link href={"https://www.behance.net/sakshamwithagarwal"}>
                   <ListIconComp className="icon" /> Behance
                 </Link>
-              </li>
-              <li>
+              </m.li>
+              <m.li
+                variants={itemVariants}
+                initial={"hidden"}
+                animate={"visible"}
+              >
                 <Link href={"https://www.instagram.com/sakshamwithagarwal"}>
                   <ListIconComp className="icon" /> Instagram
                 </Link>
-              </li>
-              <li>
+              </m.li>
+              <m.li
+                variants={itemVariants}
+                initial={"hidden"}
+                animate={"visible"}
+              >
                 <Link
                   href={
                     "https://www.linkedin.com/in/saksham-parag-agarwal-b063711b3"
@@ -35,13 +98,17 @@ const Contact = () => {
                 >
                   <ListIconComp className="icon" /> LinkedIn
                 </Link>
-              </li>
-              <li>
+              </m.li>
+              <m.li
+                variants={itemVariants}
+                initial={"hidden"}
+                animate={"visible"}
+              >
                 <Link href={"mailto:sakshamwithagarwal@gmail.com"}>
                   <ListIconComp className="icon" /> Mail
                 </Link>
-              </li>
-            </ul>
+              </m.li>
+            </m.ul>
           </div>
         </div>
 
@@ -229,7 +296,7 @@ const Contact = () => {
           <Image src={picture} className="contact_picture" />
         </div>
       </div>
-    </div>
+    </m.div>
   );
 };
 

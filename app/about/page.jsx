@@ -1,3 +1,4 @@
+"use client";
 import { open_sans, portfolioFont } from "@/utils/fonts";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,48 +6,94 @@ import "./about.css";
 import picture from "./about_me.png";
 import { ToolCard } from "@/components";
 import { tools_list } from "@/constants/tools";
+import { motion as m } from "framer-motion";
 
 const About = () => {
   return (
-    <div className={`about ${portfolioFont.className}`}>
+    <m.div
+      className={`about ${portfolioFont.className}`}
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 100 }}
+      transition={{ duration: 0.25, delay: 0.25, ease: "easeOut" }}
+    >
       <div className="about___content-wrapper">
         <div className="about__content">
           <div className="about__header">
-            <h1>Saksham.</h1>
-            <h3>B.Des. | Product & Packaging Designer</h3>
+            <m.h1
+              initial={{ y: 150 }}
+              animate={{ y: 0 }}
+              exit={{ y: 150 }}
+              transition={{ duration: 0.25, delay: 0.25, ease: "easeOut" }}
+            >
+              Saksham.
+            </m.h1>
+            <m.h3
+              initial={{ y: 150 }}
+              animate={{ y: 0 }}
+              exit={{ y: 150 }}
+              transition={{ duration: 0.25, delay: 0.35, ease: "easeOut" }}
+            >
+              B.Des. | Product & Packaging Designer
+            </m.h3>
           </div>
-          <div className="section_title">
+          <m.div
+            initial={{ y: 150 }}
+            animate={{ y: 0 }}
+            exit={{ y: 150 }}
+            transition={{ duration: 0.25, delay: 0.45, ease: "easeOut" }}
+            className="section_title"
+          >
             <h3>About</h3>
-          </div>
-          <p className={open_sans.className}>
+          </m.div>
+          <m.p
+            initial={{ y: 150 }}
+            animate={{ y: 0 }}
+            exit={{ y: 150 }}
+            transition={{ duration: 0.25, delay: 0.45, ease: "easeOut" }}
+            className={open_sans.className}
+          >
             Hey, my name is <span>Saksham Parag Agarwal</span>. I&apos;m 21 and
             I am a <span>Product & Packaging Designer</span>. I create designs
             that are both sustainable and universal. Supporter for right to
             repair & sustainability, my goal is to infuse a more eco-conscious
             approach into design.
-          </p>
-          <p className={open_sans.className}>
+          </m.p>
+          <m.p
+            initial={{ y: 150 }}
+            animate={{ y: 0 }}
+            exit={{ y: 150 }}
+            transition={{ duration: 0.25, delay: 0.45, ease: "easeOut" }}
+            className={open_sans.className}
+          >
             I draw inspiration from music and comics. The intersection of music
             and comics serves as a catalyst for creating captivating designs
             that aim to make a positive impact on the design world.
-          </p>
+          </m.p>
           <Link href={"/"} className="resume-btn">
-            {" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="15"
-              viewBox="0 0 15 15"
-              fill="none"
+            <m.span
+              initial={{ y: 250 }}
+              animate={{ y: 0 }}
+              exit={{ y: 250 }}
+              transition={{ duration: 0.25, delay: 0.75, ease: "easeOut" }}
             >
-              <path
-                d="M1 14L14 1M14 1H4.3742M14 1V10.5996"
-                stroke="var(--text-main)"
-                stroke-width="2"
-                stroke-miterlimit="10"
-              />
-            </svg>{" "}
-            View Résumé
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                style={{ marginRight: ".5rem" }}
+              >
+                <path
+                  d="M1 14L14 1M14 1H4.3742M14 1V10.5996"
+                  stroke="var(--text-main)"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                />
+              </svg>
+              View Résumé
+            </m.span>
           </Link>
         </div>
         <div className="about__picture-wrapper">
@@ -237,15 +284,21 @@ const About = () => {
         <div></div>
         <div></div>
       </div>
-      <div className="tools__wrapper">
+      <m.div
+        className="tools__wrapper"
+        initial={{ y: 100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeInOut" }}
+        viewport={{ once: true }}
+      >
         <h2>Tools</h2>
         <div className="tools__grid">
           {tools_list.map((tool, item) => (
             <ToolCard data={tool} key={item} />
           ))}
         </div>
-      </div>
-    </div>
+      </m.div>
+    </m.div>
   );
 };
 
