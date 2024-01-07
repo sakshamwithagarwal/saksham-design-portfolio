@@ -11,7 +11,7 @@ const SVGComponent = (props) => (
   >
     <path
       d="M 2 32.4674 L 33 2 M 35 2 H 10.0462 M 33 0 V 24.4981"
-    //   stroke="#83878D"
+      // stroke="#83878D"
     //   strokeWidth={4}
       strokeMiterlimit={10}
     />
