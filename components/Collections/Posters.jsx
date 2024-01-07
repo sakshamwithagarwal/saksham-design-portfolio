@@ -5,7 +5,7 @@ const Posters = () => {
       width="202"
       height="211"
       viewBox="0 0 202 211"
-      className="collection__icon"
+      className="collection__icon special"
       fill="none"
     >
       <path
