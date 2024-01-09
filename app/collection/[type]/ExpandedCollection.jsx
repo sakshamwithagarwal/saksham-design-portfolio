@@ -54,7 +54,7 @@ const ExpandedCollection = ({ collection, type }) => {
           </div>
         ) : (
           <div className="no__content">
-            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+            {/* <script src="https://cdn.lordicon.com/lordicon.js"></script>
             <lord-icon
               src="https://cdn.lordicon.com/krenhavm.json"
               trigger="in"
@@ -64,7 +64,7 @@ const ExpandedCollection = ({ collection, type }) => {
               colors="primary:#83878d,secondary:#f15412"
               style={{ width: "150px", height: "150px" }}
             ></lord-icon>
-            <div>No {type.title}</div>
+            <div>No {type.title}</div> */}
           </div>
         )
       ) : (
