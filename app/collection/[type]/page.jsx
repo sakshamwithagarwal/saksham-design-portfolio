@@ -6,7 +6,7 @@ const getCollection = async (params) => {
   const response = await fetch(`${baseUrl}/api/Collection/${params.type}`);
 
   if (!response.ok) {
-    throw new Error("Error while fetching All projects.");
+    throw new Error(`Error while fetching collection of type: ${params.type}.`);
   }
   
 

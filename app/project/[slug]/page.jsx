@@ -10,7 +10,7 @@ async function getProject(params) {
   const response = await fetch(`${baseUrl}/api/Projects/${params.slug}`);
 
   if (!response.ok) {
-    throw new Error("Error while fetching All projects.");
+    throw new Error("Error while fetching one project.");
   }
 
   return response.json();
