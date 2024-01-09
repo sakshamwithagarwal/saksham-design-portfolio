@@ -4,42 +4,21 @@
 import "./project.css";
 import ExpandedProject from "./ExpandedProject";
 import request from "graphql-request";
+import { baseUrl } from "@/app/page";
 
 async function getProject(params) {
-  const projectQuery = {
-    PROJECT_QUERY: `
-    {
-      project(where: {slug: "${params.slug}"}) {
-        id
-        projectName
-        projectThumbnail {
-          url
-        }
-        slug
-        projectContent {
-          html
-        }
-      }
-    }
-  `,
-    endPointURL:
-      "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
-  };
+  const response = await fetch(`${baseUrl}/api/Projects/${params.slug}`);
 
-  const { project } = await request(
-    projectQuery.endPointURL,
-    projectQuery.PROJECT_QUERY
-  );
+  if (!response.ok) {
+    throw new Error("Error while fetching All projects.");
+  }
 
-  // console.log('project datatatatta', project);
-  return project;
+  return response.json();
 }
 
 const Project = async ({ params }) => {
-  // console.log("slug", params);
-
   const project = await getProject(params);
-  return <ExpandedProject project={project} />;
+  return <ExpandedProject project={project.project} />;
 };
 
 export default Project;

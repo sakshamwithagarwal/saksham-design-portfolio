@@ -20,8 +20,6 @@ const ExpandedCollection = ({ collection, type }) => {
         return item.id === obj.id;
       })
     );
-
-    console.log(currentImgId, currImageIdx);
     setGalleryOpen(true);
   };
 

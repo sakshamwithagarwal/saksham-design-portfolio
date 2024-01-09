@@ -1,37 +1,16 @@
 import request from "graphql-request";
 import ExpandedCollection from "./ExpandedCollection";
-import CollectionGallery from "./CollectionGallery";
+import { baseUrl } from "@/app/page";
 
 const getCollection = async (params) => {
-  const collectionQuery = {
-    COLLECTION_QUERY: `
-    {
-      collections(where: {collectionType: ${params.type}}) {
-        collectionType
-        imageDescription
-        id
-        image {
-          fileName
-          height
-          width
-          url
-          size
-        }
-      }
-    }
-  `,
-    endPointURL:
-      "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
-  };
+  const response = await fetch(`${baseUrl}/api/Collection/${params.type}`);
 
-  const collection = await request(
-    collectionQuery.endPointURL,
-    collectionQuery.COLLECTION_QUERY
-  );
+  if (!response.ok) {
+    throw new Error("Error while fetching All projects.");
+  }
+  
 
-  // console.log(collection);
-
-  return collection;
+  return response.json();
 };
 
 const Page = async (params) => {
@@ -64,11 +43,14 @@ const Page = async (params) => {
     }
   };
   const collectionType = collection_type();
-  const collection = await getCollection(params.params);
-  console.log(collection.collections);
+  const response = await getCollection(params.params);
 
-  // return <CollectionGallery collection={collection.collections} />;
-  return <ExpandedCollection collection={collection.collections} type={collectionType} />;
+  return (
+    <ExpandedCollection
+      collection={response.collection.collections}
+      type={collectionType}
+    />
+  );
 };
 
 export default Page;

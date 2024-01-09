@@ -32,12 +32,9 @@ const CollectionGallery = ({
 
   const [infoOpen, setInfoOpen] = useState(false);
   document.addEventListener("keydown", (e) => {
-    console.log("key downed");
     if (e.key === "ArrowLeft") {
-      console.log("left left left");
       updateImage.prevImg();
     } else if (e.key === "ArrowRight") {
-      console.log("right right right");
       updateImage.nextImg();
     }
   });
@@ -64,11 +61,9 @@ const CollectionGallery = ({
       className={`collection__gallery ${portfolioFont.className}`}
       onKeyUp={() => {
         if (e.key === "ArrowLeft") {
-          console.log("left left left");
           updateImage.prevImg();
         }
         if (e.key === "ArrowRight") {
-          console.log("right right right");
           updateImage.nextImg();
         }
       }}
@@ -106,7 +101,13 @@ const CollectionGallery = ({
                 d="M17.258 12.852C16.3589 11.9863 16.3589 10.5341 17.258 9.66835C18.1571 8.80261 19.6653 8.80261 20.5644 9.66835C21.4635 10.5341 21.4635 11.9863 20.5644 12.852C19.6653 13.7178 18.1571 13.7178 17.258 12.852ZM17.113 29.3849V15.3096H20.7094V29.3849H17.113Z"
                 fill="var(--text-main)"
               />
-              <circle cx="19" cy="19" r="17" stroke="var(--text-main)" strokeWidth="4" />
+              <circle
+                cx="19"
+                cy="19"
+                r="17"
+                stroke="var(--text-main)"
+                strokeWidth="4"
+              />
             </svg>
           ) : (
             <svg
@@ -370,7 +371,11 @@ const CollectionGallery = ({
                       strokeLinecap="round"
                     />
                   </svg>
-                  {collection[currImageIdx].imageDescription ? collection[currImageIdx].imageDescription : <div style={{opacity: 0.5}}>No Description</div> }
+                  {collection[currImageIdx].imageDescription ? (
+                    collection[currImageIdx].imageDescription
+                  ) : (
+                    <div style={{ opacity: 0.5 }}>No Description</div>
+                  )}
                 </li>
               </ul>
             </div>

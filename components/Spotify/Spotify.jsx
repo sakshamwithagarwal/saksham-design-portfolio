@@ -5,7 +5,7 @@ import "./spotify.css";
 const Spotify = ({ albumArt, songURL }) => {
   return (
     <div className="now__streaming">
-      <Link href={songURL}>
+      <Link href={songURL} target="_blank">
         <Image
           className="now__streaming__image"
           src={albumArt}
