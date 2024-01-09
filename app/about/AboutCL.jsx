@@ -19,7 +19,7 @@ const AboutCL = ({songURL, albumArt}) => {
     >
       <div className="about___content-wrapper">
         <div className="about__content">
-          <div className="about__header">
+          <div className="about__header custom_header">
             <m.h1
               initial={{ y: 150 }}
               animate={{ y: 0 }}

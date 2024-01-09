@@ -10,7 +10,7 @@
 
 .sun-and-moon>.sun-beams {
   stroke: var(--icon-fill);
-  strokeWidth: 2px;
+  stroke-width: 2px;
 }
 
 

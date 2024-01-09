@@ -17,26 +17,26 @@ const Collections = () => {
       description:
         "Masterful 3D renders revealing the product design & rendering skills.",
       icon: <Render />,
-      url: "/collection/3DRenders",
+      type: "Renders",
     },
     {
       title: "Posters",
       description:
         "Engaging layouts that captivate and communicate at a glance.",
       icon: <Posters />,
-      url: "/collection/Posters",
+      type: "Posters",
     },
     {
       title: "Sketches",
       description: "Dynamic sketches showcasing product design potential.",
       icon: <Sketchs />,
-      url: "/collection/Sketches",
+      type: "Sketches",
     },
     {
       title: "Photographs",
       description: "Captivating photography capturing the essence of design.",
       icon: <Photographs />,
-      url: "/collection/Photographs",
+      type: "Photos",
     },
   ];
   return (
@@ -53,7 +53,10 @@ const Collections = () => {
       <div className="section_container">
         <ul>
           {collectionsList.map((collection, idx) => (
-            <Link key={collection.title + ":" + idx} href={collection.url}>
+            <Link
+              key={collection.title + ":" + idx}
+              href={`/collection/${collection.type}`}
+            >
               <li className="collection__tile">
                 <div className={`collection__title ${portfolioFont.className}`}>
                   <h2>{collection.title}</h2>
@@ -62,20 +65,20 @@ const Collections = () => {
                 <div className="collection__visuals">
                   <div className="view_icon-collection">
                     <div className="icon-wrapper">
-                    <svg
-                      width={35}
-                      height={34}
-                      viewBox="0 0 35 34"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="listIcon"
-                    >
-                      <path
-                        d="M 2 32.4674 L 33 2 M 35 2 H 10.0462 M 33 0 V 24.4981"
-                        strokeWidth={3.8}
-                        strokeMiterlimit={14}
-                      />
-                    </svg>
+                      <svg
+                        width={35}
+                        height={34}
+                        viewBox="0 0 35 34"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="listIcon"
+                      >
+                        <path
+                          d="M 2 32.4674 L 33 2 M 35 2 H 10.0462 M 33 0 V 24.4981"
+                          strokeWidth={3.8}
+                          strokeMiterlimit={14}
+                        />
+                      </svg>
                     </div>
                     View
                   </div>

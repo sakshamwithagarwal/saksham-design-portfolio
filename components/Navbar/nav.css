@@ -54,7 +54,7 @@ nav .contact_btn {
 
 .simplified__nav .logo path {
   stroke: var(--text-main);
-  strokeWidth: .8px;
+  stroke-width: .8px;
 } */
 
 .nav_hamburger {
@@ -123,7 +123,7 @@ nav .contact_btn {
 
 .nav__list .nav__list-sub-item {
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .nav__list .nav__list-sub-item a {
@@ -131,7 +131,7 @@ nav .contact_btn {
 }
 
 .nav__list .listitem-inner {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .nav__list .listitem-inner a {
@@ -183,11 +183,14 @@ nav .contact_btn {
 .nav__list ul {
   display: block;
   list-style: none;
+  /* border: 1px solid yellow; */
 }
 
 .nav__list ul li {
   font-weight: 700;
   font-size: max(2.5rem, min(4vw, 5rem));
+  overflow: hidden;
+  /* border: 1px solid red; */
 }
 
 .nav__list .nav__sublist {
@@ -210,7 +213,7 @@ nav .contact_btn {
 
 .nav__list .listIcon {
   stroke: var(--text-main);
-  strokeWidth: 4;
+  stroke-width: 4;
   display: inline-block;
 
   height: 1.5rem;
@@ -219,7 +222,7 @@ nav .contact_btn {
 }
 
 .nav__sublist .listIcon {
-  strokeWidth: 4px;
+  stroke-width: 4px;
   width: 1rem;
   height: .8rem;
 

@@ -45,7 +45,7 @@ const ContactCL = ({ albumArt, songURL }) => {
     >
       <div className="contact__wrapper">
         <div className="contact__wrapper-inner">
-          <div className="contact__intro">
+          <div className="contact__intro custom_header">
             <m.h1
               initial={{ y: 150 }}
               animate={{ y: 0 }}
@@ -54,14 +54,14 @@ const ContactCL = ({ albumArt, songURL }) => {
             >
               Hello.
             </m.h1>
-            <m.p
+            <m.h3
               initial={{ y: 150 }}
               animate={{ y: 0 }}
               exit={{ y: 150 }}
               transition={{ duration: 0.25, delay: 0.35, ease: "easeOut" }}
             >
               I&apos;d Love to hear from you.
-            </m.p>
+            </m.h3>
           </div>
           <div className="contact__socials">
             <m.h2

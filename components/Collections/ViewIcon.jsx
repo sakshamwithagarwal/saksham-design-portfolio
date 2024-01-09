@@ -17,20 +17,20 @@ const ViewIcon = () => {
         height="34.5636"
         rx="17.2818"
         stroke="#D4CCC3"
-        strokeWidth="1.56305"
+        strokeWidth="2.56305"
       />
       <circle
         cx="19.0171"
         cy="18.3243"
         r="11.7229"
         stroke="#D4CCC3"
-        strokeWidth="1.56305"
+        strokeWidth="2.56305"
       />
       <path
         className="view_arrow"
         d="M14.3281 23.0133L23.7064 13.635M23.7064 13.635H16.7623M23.7064 13.635V20.5603"
         stroke="#D4CCC3"
-        strokeWidth="1.56305"
+        strokeWidth="2.56305"
         strokeMiterlimit="10"
       />
       <path

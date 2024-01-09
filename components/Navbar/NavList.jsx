@@ -11,17 +11,17 @@ const NavList = ({ toggle }) => {
       opacity: 0.5,
       transition: {
         bounce: 0.1,
-        duration: 0.8,
+        duration: 2,
         restDelta: 0.00001,
         type: "spring",
       },
       transitionEnd: { display: "none" },
-      y: -100,
+      // y: -50,
     },
     open: {
       display: "",
       opacity: 1,
-      y: 0,
+      // y: 0,
       transition: { delayChildren: 0.3, staggerChildren: 0.05 },
     },
   };
@@ -37,22 +37,33 @@ const NavList = ({ toggle }) => {
 
   const itemVariants = {
     close: {
-      opacity: 0,
+      // opacity: 0,
       transition: {
-        striffness: 300,
+        stiffness: 300,
         damping: 24,
         type: "spring",
       },
-      y: -96,
+      y: -100,
+      transition: {
+        duration: 1,
+      },
     },
     open: {
-      opacity: 1,
-      transition: { mass: 0.1, restDelta: 0.00001, type: "spring" },
+      // opacity: 1,
+      // transition: { mass: 0.5, restDelta: 0.5, type: "spring" },
       y: 0,
     },
   };
+
   return (
-    <motion.div className={`nav__list active ${portfolioFont.className}`}>
+    <motion.div
+      className={`nav__list active ${portfolioFont.className}`}
+      initial={{
+        opacity: 0,
+      }}
+      animate={{ opacity: 1, transition: { duration: 0.8 } }}
+      exit={{ opacity: 0 }}
+    >
       <motion.ul
         initial="close"
         animate="open"
@@ -63,11 +74,16 @@ const NavList = ({ toggle }) => {
         {listItem.map((item) => {
           return (
             <li key={item.title}>
-              <motion.div className="listitem-inner" variants={itemVariants}>
+              <motion.div
+                className="listitem-inner"
+                variants={itemVariants}
+                // style={{ border: "1px solid blue" }}
+                // transition={{ duration: 0.5 }}
+              >
                 <Link href={item.url} onClick={toggle}>
                   <ListIconComp className="icon" /> {item.title}
                 </Link>
-                <ul className="nav__sublist">
+                {/* <ul className="nav__sublist">
                   {item.sublist.map((subItem) => (
                     <motion.li
                       variants={itemVariants}
@@ -80,7 +96,7 @@ const NavList = ({ toggle }) => {
                       </Link>
                     </motion.li>
                   ))}
-                </ul>
+                </ul> */}
               </motion.div>
             </li>
           );

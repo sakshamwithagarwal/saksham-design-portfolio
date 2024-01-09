@@ -1,0 +1,176 @@
+.collection__gallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--main-bg);
+    z-index: 100;
+    padding: 4rem 5%;
+
+    .topbar {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        .icon {
+            width: 2rem;
+        }
+    }
+
+    .carousel__wrapper {
+        display: flex;
+        height: 95%;
+        margin-top: 1rem;
+        /* border: 1px solid blue; */
+
+        .carousel__container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+
+            .prev-icon {
+                transform: rotate(-180deg);
+            }
+
+            .images__wrapper {
+                height: 100%;
+                width: 80%;
+                /* border: 1px solid green; */
+                overflow: hidden;
+                position: relative;
+
+                /* .image__container {
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid salmon;
+
+                    img {
+                        border-radius: .625rem;
+                    }
+                } */
+
+                .image__container {
+                    height: 100%;
+                    display: flex;
+
+                    >div {
+                        position: unset !important;
+                    }
+
+                    .image {
+                        object-fit: contain;
+                        height: 100% !important;
+                        position: relative !important;
+                        width: unset !important;
+                        border-radius: .625rem;
+                        margin: auto;
+                    }
+                }
+            }
+
+            .prev-icon,
+            .next-icon {
+                margin-bottom: 2rem;
+
+                /* border: 1px solid red; */
+                svg {
+                    width: 2rem;
+
+                    
+                }
+            }
+        }
+
+        .info__container {
+            background-color: var(--secondary-bg);
+            width: 30rem;
+            border-radius: 0.6rem;
+            padding: 2rem;
+            font-weight: 400;
+
+            .info__inner {
+                margin-bottom: 2.5rem;
+
+                .inner-head {
+                    font-size: 1.5rem;
+                    border-bottom: 2px solid var(--text-main);
+                    margin-bottom: 2rem;
+                    padding-bottom: .5rem;
+                }
+
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+
+                    li {
+                        display: flex;
+                        align-items: center;
+                        gap: 1.5rem;
+                        margin-bottom: 1.5rem;
+                        font-size: 1.3rem;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        span {
+                            width: 100%;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                        }
+
+                    }
+                }
+
+                &:last-of-type {
+                    ul li {
+                        align-items: flex-start;
+                    }
+                }
+
+                svg {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+
+        }
+    }
+}
+
+[data-theme="dark"] .box {
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+    .collection__gallery {
+        position: absolute;
+        height: 150vh;
+        padding: 2rem 5%;
+        .topbar {
+            .back-icon {
+                width: 1.5rem;
+            }
+        }
+        .carousel__wrapper {
+            flex-direction: column;
+
+            .carousel__container {
+                height: 70vh;
+                .images__wrapper {
+                    width: 100%;
+                }
+            }
+
+            .prev-icon, .next-icon {
+                display: none;
+            }
+
+            .info__container {
+                width: 100%;
+            }
+        }
+    }
+}
