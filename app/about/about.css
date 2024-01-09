@@ -203,6 +203,10 @@
         margin-top: 2rem;
     }
 
+    .about p {
+        width: 100%;
+    }
+
     .about__content {
         width: 100%;
     }
