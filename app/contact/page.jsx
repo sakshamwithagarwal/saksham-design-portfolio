@@ -1,15 +1,6 @@
 import "./contact.css";
 import ContactCL from "./Contact";
-
-const getNowPlaying = async () => {
-  const song = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
-    cache: "no-store",
-    next: { revalidate: 203 },
-    method: "POST",
-  });
-
-  return song.json();
-};
+import { getNowPlaying } from "@/lib/spotify";
 
 const Contact = async () => {
   const song = await getNowPlaying();
