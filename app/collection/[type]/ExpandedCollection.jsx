@@ -61,8 +61,8 @@ const ExpandedCollection = ({ collection, type }) => {
               state="in-reveal"
               colors="primary:#83878d,secondary:#f15412"
               style={{ width: "150px", height: "150px" }}
-            ></lord-icon>
-            <div>No {type.title}</div> */}
+        ></lord-icon>*/}
+            <div>No {type.title}</div> 
           </div>
         )
       ) : (

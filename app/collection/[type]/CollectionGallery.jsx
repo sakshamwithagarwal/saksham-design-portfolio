@@ -31,30 +31,44 @@ const CollectionGallery = ({
   };
 
   const [infoOpen, setInfoOpen] = useState(false);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") {
-      updateImage.prevImg();
-    } else if (e.key === "ArrowRight") {
-      updateImage.nextImg();
-    }
-  });
 
-  let touchstartX = 0;
-  let touchendX = 0;
+  const detectSwipe = () => {
+    let touchstartX = 0;
+    let touchendX = 0;
 
-  const checkDirection = () => {
-    if (touchendX < touchstartX) updateImage.prevImg();
-    if (touchendX > touchstartX) updateImage.nextImg();
+    const checkDirection = () => {
+      if (touchendX < touchstartX) updateImage.prevImg();
+      if (touchendX > touchstartX) updateImage.nextImg();
+    };
+
+    document.addEventListener("touchstart", (e) => {
+      touchstartX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener("touchend", (e) => {
+      touchendX = e.changedTouches[0].screenX;
+      checkDirection();
+    });
   };
 
-  document.addEventListener("touchstart", (e) => {
-    touchstartX = e.changedTouches[0].screenX;
-  });
+  detectSwipe();
 
-  document.addEventListener("touchend", (e) => {
-    touchendX = e.changedTouches[0].screenX;
-    checkDirection();
-  });
+  const keyPressDetect = () => {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        updateImage.prevImg();
+      } else if (e.key === "ArrowRight") {
+        updateImage.nextImg();
+      } else if (e.key === "i") {
+        setInfoOpen(!infoOpen);
+      } else if (e.key === "Escape") {
+        setInfoOpen(false);
+        setGalleryOpen(false);
+      }
+    });
+  };
+
+  keyPressDetect();
 
   return (
     <div
