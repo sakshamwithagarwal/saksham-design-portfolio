@@ -15,7 +15,6 @@ async function getProject(params) {
 
 const Project = async ({ params }) => {
   const project = await getProject(params);
-  console.log(project);
   return <ExpandedProject project={project} />;
 };
 
