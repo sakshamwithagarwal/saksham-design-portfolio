@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <div>
       <Main />
-      <AllProjects projects={projectsData.projects} />
+      <AllProjects projects={projectsData} />
       <Collections />
     </div>
   );

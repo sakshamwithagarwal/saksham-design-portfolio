@@ -15,7 +15,8 @@ async function getProject(params) {
 
 const Project = async ({ params }) => {
   const project = await getProject(params);
-  return <ExpandedProject project={project.project} />;
+  console.log(project);
+  return <ExpandedProject project={project} />;
 };
 
 export default Project;
