@@ -1,13 +1,6 @@
 import { AllProjects, Collections, Main } from "@/components";
-import { request } from "graphql-request";
-
-export const baseUrl =
-process.env.NODE_ENV === "production"
-  ? "https://saksham-design-portfolio.vercel.app/"
-  : "http://localhost:3000";
-
 const getProjects = async () => {
-  const response = await fetch(`${baseUrl}/api/Projects`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Projects`)
   if(!response.ok) {
     throw new Error('Error while fetching All projects.');
   }

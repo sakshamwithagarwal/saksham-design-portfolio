@@ -1,9 +1,7 @@
-import request from "graphql-request";
 import ExpandedCollection from "./ExpandedCollection";
-import { baseUrl } from "@/app/page";
 
 const getCollection = async (params) => {
-  const response = await fetch(`${baseUrl}/api/Collection/${params.type}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Collection/${params.type}`);
 
   if (!response.ok) {
     throw new Error(`Error while fetching collection of type: ${params.type}.`);

@@ -1,9 +1,8 @@
 import "./about.css";
 import AboutCL from "./AboutCL";
-import { baseUrl } from "../page";
 
 const getNowPlaying = async () => {
-  const song = await fetch(`${baseUrl}/api/SpotifyNowPlaying`, {
+  const song = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/SpotifyNowPlaying`, {
     method: "POST",
   });
 

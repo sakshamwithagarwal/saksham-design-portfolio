@@ -1,13 +1,8 @@
-// 'use client'
-// import { useEffect } from "react";
-// import locomotiveScroll from "locomotive-scroll";
 import "./project.css";
 import ExpandedProject from "./ExpandedProject";
-import request from "graphql-request";
-import { baseUrl } from "@/app/page";
 
 async function getProject(params) {
-  const response = await fetch(`${baseUrl}/api/Projects/${params.slug}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Projects/${params.slug}`);
 
   if (!response.ok) {
     throw new Error("Error while fetching one project.");
