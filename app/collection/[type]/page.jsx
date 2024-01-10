@@ -2,7 +2,7 @@ import ExpandedCollection from "./ExpandedCollection";
 
 const getCollection = async (params) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/Collection/${params.type}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/collection/${params.type}`,
     { cache: "no-store" }
   );
 

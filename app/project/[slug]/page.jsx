@@ -3,7 +3,7 @@ import ExpandedProject from "./ExpandedProject";
 
 async function getProject(params) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/Projects/${params.slug}`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/projects/${params.slug}`
   );
 
   if (!response.ok) {
