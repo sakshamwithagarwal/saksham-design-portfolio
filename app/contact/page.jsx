@@ -2,10 +2,11 @@ import "./contact.css";
 import ContactCL from "./Contact";
 
 const getNowPlaying = async () => {
-  const song = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
-    { next: { revalidate: 203 }, method: "POST" }
-  );
+  const song = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
+    cache: "no-store",
+    next: { revalidate: 203 },
+    method: "POST",
+  });
 
   return song.json();
 };

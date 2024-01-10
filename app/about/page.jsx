@@ -2,10 +2,11 @@ import "./about.css";
 import AboutCL from "./AboutCL";
 
 const getNowPlaying = async () => {
-  const song = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/about`,
-    { next: { revalidate: 203 }, method: "POST" }
-  );
+  const song = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/about`, {
+    cache: "no-store",
+    next: { revalidate: 203 },
+    method: "POST",
+  });
 
   return song.json();
 };

@@ -1,4 +1,3 @@
-// import { getAllProjects } from "@/lib/projects";
 import { NextResponse } from "next/server";
 import { request } from "graphql-request";
 
