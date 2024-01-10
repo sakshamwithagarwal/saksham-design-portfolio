@@ -11,6 +11,7 @@ const Spotify = ({ albumArt, songURL }) => {
           src={albumArt}
           width={100}
           height={100}
+          alt="Spotify Song"
         />
       </Link>
       <div className="music__text-wrapper">

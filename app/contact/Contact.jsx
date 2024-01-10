@@ -108,7 +108,7 @@ const ContactCL = ({ albumArt, songURL }) => {
 
         <div className="contact_picture__wrapper">
           <Spotify albumArt={albumArt} songURL={songURL} />
-          <Image src={picture} className="contact_picture" />
+          <Image src={picture} className="contact_picture" alt="Saksham Parag Agarwal's Picture" />
         </div>
       </div>
     </m.div>

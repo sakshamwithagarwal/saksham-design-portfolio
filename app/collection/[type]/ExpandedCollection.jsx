@@ -42,6 +42,7 @@ const ExpandedCollection = ({ collection, type }) => {
                 onClick={() => handleGalleryClick(item)}
               >
                 <Image
+                  alt="Collection of Work"
                   src={item.image.url}
                   className="image"
                   layout="fill"

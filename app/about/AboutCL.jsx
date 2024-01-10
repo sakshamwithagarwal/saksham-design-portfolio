@@ -100,7 +100,7 @@ const AboutCL = ({songURL, albumArt}) => {
         <div className="about__picture-wrapper">
           <Spotify albumArt={albumArt} songURL={songURL} />
 
-          <Image src={picture} className="about__picture" />
+          <Image src={picture} className="about__picture" alt="Saksham's Picture" />
         </div>
       </div>
       <div className="scroll-down-btn">
