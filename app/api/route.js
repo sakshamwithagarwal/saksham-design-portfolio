@@ -4,7 +4,7 @@ import { request } from "graphql-request";
 export async function GET() {
   try {
     const { projects } = await request(
-      "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
+      "https://ap-south-1.cdn.hygraph.com/content/clha5gtcw11sx01taepog266q/master",
       `
         query Projects {
           projects {
@@ -29,6 +29,6 @@ export async function GET() {
     
     return NextResponse.json(projects);
   } catch (err) {
-    throw new Error("Failed to fetch all projects.");
+    throw new Error("Failed to fetch more projects in server.");
   }
 }

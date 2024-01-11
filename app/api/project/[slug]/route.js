@@ -20,7 +20,7 @@ export async function GET(req, { params }) {
               }
             `,
       endPointURL:
-        "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
+        "https://ap-south-1.cdn.hygraph.com/content/clha5gtcw11sx01taepog266q/master",
     };
 
     const { project } = await request(
