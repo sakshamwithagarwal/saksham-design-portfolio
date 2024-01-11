@@ -1,8 +1,9 @@
 import React from "react";
+import AllProjectsPage from "./AllProjects";
 
 const getProjects = async () => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/projects`, {next: {revalidate: 3600}}
+    `${process.env.NEXT_PUBLIC_API_URL}/api/project`, {next: {revalidate: 3600}}
   );
 
   if (!response.ok) {
@@ -14,7 +15,7 @@ const getProjects = async () => {
 const Page = async () => {
   const projectsData = await getProjects();
 
-  return <div>Page</div>;
+  return <AllProjectsPage projects={projectsData} />;
 };
 
 export default Page;

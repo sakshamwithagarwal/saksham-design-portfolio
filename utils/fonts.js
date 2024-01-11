@@ -14,6 +14,11 @@ export const portfolioFont = localfont({
       style: "normal",
     },
     {
+      path: "../public/fonts/Portfolio Medium Italic.otf",
+      weight: "500",
+      style: "italic",
+    },
+    {
       path: "../public/fonts/Portfolio Font.otf",
       weight: "400",
       style: "normal",

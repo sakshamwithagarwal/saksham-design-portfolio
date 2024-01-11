@@ -3,7 +3,7 @@ import ExpandedProject from "./ExpandedProject";
 
 async function getProject(slug) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/projects/${slug}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/project/${slug}`,
     { next: { revalidate: 3600 } }
   );
 

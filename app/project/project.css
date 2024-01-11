@@ -1,0 +1,56 @@
+.all-projects {
+    min-height: 90vh;
+    .projects__title {
+        h1 {
+            line-height: normal;
+        }
+    }
+
+    .project__filters {
+        --gap: 0.8rem;
+        margin-top: 3rem;
+        display: flex;
+        align-items: center;
+        gap: var(--gap);
+
+        .title {
+            font-weight: 600;
+        }
+
+        .filter__wrapper {
+            display: flex;
+            gap: var(--gap);
+
+            .filter {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+
+                font-style: italic;
+                font-weight: 500;
+                border: 2px solid var(--text-main);
+                padding: 0.175rem 0.9rem;
+                border-radius: 0.5rem;
+                transition: .3s;
+
+                svg {
+                    margin-left: .8rem;
+                    margin-top: 3px;
+                }
+
+                &:hover,
+                &.selected {
+                    background: var(--text-main);
+                    color: var(--main-bg);
+                }
+            }
+        }
+    }
+
+    .projects {
+        margin-top: 3rem;
+        .section_title {
+            display: none;
+        }
+    }
+}
