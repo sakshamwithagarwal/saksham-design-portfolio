@@ -61,7 +61,7 @@ const AllProjectsPage = ({ projects }) => {
                 >
                   <path
                     d="M1 1L10 10M10 1L1 10"
-                    stroke="#1C1C25"
+                    stroke="var(--text-main)"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"

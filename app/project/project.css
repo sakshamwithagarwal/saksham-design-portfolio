@@ -29,7 +29,7 @@
                 font-style: italic;
                 font-weight: 500;
                 border: 2px solid var(--text-main);
-                padding: 0.175rem 0.9rem;
+                padding: 0.175rem 0.9rem 0.175rem 0.85rem;
                 border-radius: 0.5rem;
                 transition: .3s;
 
@@ -42,6 +42,10 @@
                 &.selected {
                     background: var(--text-main);
                     color: var(--main-bg);
+
+                    svg path{
+                        stroke: var(--main-bg);
+                    }
                 }
             }
         }
