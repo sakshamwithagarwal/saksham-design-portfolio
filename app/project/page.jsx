@@ -7,7 +7,7 @@ const getProjects = async () => {
   );
 
   if (!response.ok) {
-    throw new Error("Error while fetching All projects.");
+    throw new Error("Error while fetching more projects.");
   }
   return response.json();
 };

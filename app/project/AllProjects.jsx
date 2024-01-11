@@ -1,12 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./project.css";
 
 import { open_sans, portfolioFont } from "@/utils/fonts";
 import { AllProjects } from "@/components";
 
 const AllProjectsPage = ({ projects }) => {
-  const [projectData, setProjectData] = useState(projects);
   const filters = ["Product", "Packaging", "Visual Identity", "UI/UX"];
   const [filterSelected, setFilterSelected] = useState(false);
   const [filterActive, setFilterActive] = useState("");
