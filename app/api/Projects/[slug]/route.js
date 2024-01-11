@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { request } from "graphql-request";
-// import { getSingleProject } from "@/lib/projects";
 
 export async function GET(req, { params }) {
   try {

@@ -26,8 +26,6 @@ export async function GET() {
         }
         `
     );
-
-    console.log(projects);
     
     return NextResponse.json(projects);
   } catch (err) {
