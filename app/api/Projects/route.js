@@ -1,34 +1,36 @@
 import { NextResponse } from "next/server";
 import { request } from "graphql-request";
 
-export async function GET() {
+export async function GET(req, { params }) {
+  console.log(params);
   try {
-    const { projects } = await request(
-      "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
-      `
-        query Projects {
-          projects {
-            id
-            projectName
-            projectDescription
-            projectThumbnail {
-              url
-              height
-              width
-              fileName
-            }
-            tags
-            slug
-            projectContent {
-              html
-            }
-          }
-        }
-        `
+    const projectQuery = {
+      PROJECT_QUERY: `
+              {
+                project(where: {slug: "${params.slug}"}) {
+                  id
+                  projectName
+                  projectThumbnail {
+                    url
+                  }
+                  slug
+                  projectContent {
+                    html
+                  }
+                }
+              }
+            `,
+      endPointURL:
+        "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
+    };
+
+    const { project } = await request(
+      projectQuery.endPointURL,
+      projectQuery.PROJECT_QUERY
     );
-    
-    return NextResponse.json(projects);
+
+    return NextResponse.json(project);
   } catch (err) {
-    throw new Error("Failed to fetch all projects.");
+    throw new Error(`Failed to fetch project ${params.slug}`);
   }
 }
