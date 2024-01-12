@@ -1,20 +1,20 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import "./style.css";
 import Image from "next/image";
 import { portfolioFont } from "@/utils/fonts";
+import { motion as m } from "framer-motion";
 import { BrowserView, isDesktop } from "react-device-detect";
 
 const CollectionGallery = ({
   collection,
-  currentImgId,
   currImageIdx,
   setCurrentImgId,
   setGalleryOpen,
   setCurrImageIdx,
 }) => {
   const length = collection.length;
-
+  const [infoOpen, setInfoOpen] = useState(false);
   const updateImage = {
     prevImg: () => {
       setCurrImageIdx(currImageIdx == 0 ? length - 1 : currImageIdx - 1);
@@ -29,9 +29,6 @@ const CollectionGallery = ({
       );
     },
   };
-
-  const [infoOpen, setInfoOpen] = useState(false);
-
   const detectSwipe = () => {
     let touchstartX = 0;
     let touchendX = 0;
@@ -50,9 +47,7 @@ const CollectionGallery = ({
       checkDirection();
     });
   };
-
   detectSwipe();
-
   const keyPressDetect = () => {
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowLeft") {
@@ -67,13 +62,26 @@ const CollectionGallery = ({
       }
     });
   };
-
   keyPressDetect();
 
+  const variants = {
+    infoPannel: {
+      hidden: { opacity: 0, x: 50 },
+      visible: { opacity: 1, x: 0 },
+    },
+    head: {
+      hidden: { opacity: 0, y: 50 },
+      visible: { opacity: 1, y: 0 },
+    },
+    image : {
+      
+    }
+  };
+
   return (
-    <div
+    <m.div
       className={`collection__gallery ${portfolioFont.className}`}
-      onKeyUp={() => {
+      onKeyDown={() => {
         if (e.key === "ArrowLeft") {
           updateImage.prevImg();
         }
@@ -81,6 +89,9 @@ const CollectionGallery = ({
           updateImage.nextImg();
         }
       }}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
     >
       <div className="topbar">
         <svg
@@ -193,7 +204,7 @@ const CollectionGallery = ({
               </defs>
             </svg>
           </div>
-          <div className="images__wrapper">
+          <m.div className="images__wrapper">
             {currImageIdx >= 0 ? (
               <Image
                 alt={collection[currImageIdx].imageDescription}
@@ -206,7 +217,7 @@ const CollectionGallery = ({
             ) : (
               "hehe"
             )}
-          </div>
+          </m.div>
           <div className="next-icon" onClick={updateImage.nextImg}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -248,14 +259,28 @@ const CollectionGallery = ({
           </div>
         </div>
         {!isDesktop || infoOpen ? (
-          <div className="info__container">
+          <m.div className="info__container" variants={variants.infoPannel}>
             <div className="info__inner">
-              <div className="inner-head">
+              <m.div
+                className="inner-head"
+                variants={variants.head}
+                // transition={{ delay: 0.2 }}
+              >
                 <div>info</div>
-              </div>
+              </m.div>
 
-              <ul>
-                <li title={collection[currImageIdx].image.fileName}>
+              <m.ul
+                variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+                transition={{
+                  staggerChildren: 0.2,
+                  staggerDirection: 1,
+                  delayChildren: 0.3,
+                }}
+              >
+                <m.li
+                  title={collection[currImageIdx].image.fileName}
+                  variants={variants.head}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="34"
@@ -283,8 +308,8 @@ const CollectionGallery = ({
                     />
                   </svg>
                   <span>{collection[currImageIdx].image.fileName}</span>
-                </li>
-                <li>
+                </m.li>
+                <m.li variants={variants.head}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="31"
@@ -327,8 +352,8 @@ const CollectionGallery = ({
                   </svg>
                   {collection[currImageIdx].image.width} X{" "}
                   {collection[currImageIdx].image.height}
-                </li>
-                <li>
+                </m.li>
+                <m.li variants={variants.head}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -350,15 +375,22 @@ const CollectionGallery = ({
                     />
                   </svg>{" "}
                   {(collection[currImageIdx].image.size / 1e6).toFixed(1)} MB
-                </li>
-              </ul>
+                </m.li>
+              </m.ul>
             </div>
             <div className="info__inner">
-              <div className="inner-head">
+              <m.div
+                className="inner-head"
+                variants={variants.head}
+                transition={{ delay: 0.2 }}
+              >
                 <div>description</div>
-              </div>
-              <ul>
-                <li>
+              </m.div>
+              <m.ul
+                variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+                transition={{ staggerChildren: 0.3, delay: 0.2 }}
+              >
+                <m.li variants={variants.head} transition={{ delay: 0.3 }}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="32"
@@ -390,15 +422,15 @@ const CollectionGallery = ({
                   ) : (
                     <div style={{ opacity: 0.5 }}>No Description</div>
                   )}
-                </li>
-              </ul>
+                </m.li>
+              </m.ul>
             </div>
-          </div>
+          </m.div>
         ) : (
           <></>
         )}
       </div>
-    </div>
+    </m.div>
   );
 };
 

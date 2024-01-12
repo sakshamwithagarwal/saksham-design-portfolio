@@ -35,6 +35,7 @@
 
 :root[data-theme="dark"] {
   --main-bg: #1c1c25;
+  --main-bg: #1d1d1d;
   --medium-bg: #727272;
   --dark-bg: #9f9f9f;
   --grey: #b0b0b0;

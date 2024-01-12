@@ -1,5 +1,6 @@
 .collection {
     min-height: 90vh;
+
     .collection__title {
         margin: 3rem 0 4rem;
     }
@@ -12,6 +13,8 @@
 
         .collection__image {
             width: 100%;
+            overflow: hidden;
+            border-radius: .625rem;
 
             >div {
                 position: unset !important;
@@ -23,10 +26,12 @@
                 position: relative !important;
                 height: unset !important;
                 border-radius: .625rem;
+                transition: .3s;
             }
         }
 
     }
+
     .no__content {
         width: 100%;
         height: 100%;

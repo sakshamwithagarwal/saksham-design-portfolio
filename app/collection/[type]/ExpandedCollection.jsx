@@ -2,8 +2,10 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import "./collection_page.css";
+import { motion as m } from "framer-motion";
 import { portfolioFont } from "@/utils/fonts";
 import CollectionGallery from "./CollectionGallery";
+import NoItem from "@/components/NoChildren/NoItem";
 
 const ExpandedCollection = ({ collection, type }) => {
   const [galleryOpen, setGalleryOpen] = useState(false);
@@ -11,8 +13,6 @@ const ExpandedCollection = ({ collection, type }) => {
   const [currImageIdx, setCurrImageIdx] = useState(-1);
 
   const handleGalleryClick = (obj) => {
-    // updateId(obj)
-    // updateIdx()
     setCurrentImgId(obj.id);
 
     setCurrImageIdx(
@@ -23,20 +23,43 @@ const ExpandedCollection = ({ collection, type }) => {
     setGalleryOpen(true);
   };
 
+  const variants = {
+    header: {
+      hidden: { opacity: 0, y: 48 },
+      visible: { opacity: 1, y: 0 },
+    },
+    image: {
+      hidden: { opacity: 0, y: 40 },
+      visible: { opacity: 1, y: 0 },
+    },
+  };
   return (
-    <div className="collection">
-      <div
+    <m.div
+      className="collection"
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+    >
+      <m.div
+        variants={variants.header}
+        transition={{ duration: 0.3 }}
         className={`collection__title custom_header ${portfolioFont.className}`}
       >
-        <h1>{type.title}.</h1>
-        <h3>{type.subtitle}</h3>
-      </div>
+        <m.h1>{type.title}.</m.h1>
+        <m.h3>{type.subtitle}</m.h3>
+      </m.div>
 
       {!galleryOpen ? (
         collection.length ? (
-          <div className="collection__grid">
+          <m.div
+            className="collection__grid"
+            variants={{hidden: {opacity: 0}, visible: {opacity: 1}}}
+            transition={{ staggerChildren: 0.2 }}
+          >
             {collection.map((item, idx) => (
-              <div
+              <m.div
+                variants={variants.image}
+                transition={{ duration: 0.3 }}
                 key={idx}
                 className="collection__image"
                 onClick={() => handleGalleryClick(item)}
@@ -48,11 +71,12 @@ const ExpandedCollection = ({ collection, type }) => {
                   layout="fill"
                   objectFit="cover"
                 />
-              </div>
+              </m.div>
             ))}
-          </div>
+          </m.div>
         ) : (
           <div className="no__content">
+            <NoItem item={type.title} />
             {/* <script src="https://cdn.lordicon.com/lordicon.js"></script>
             <lord-icon
               src="https://cdn.lordicon.com/krenhavm.json"
@@ -63,7 +87,6 @@ const ExpandedCollection = ({ collection, type }) => {
               colors="primary:#83878d,secondary:#f15412"
               style={{ width: "150px", height: "150px" }}
         ></lord-icon>*/}
-            <div>No {type.title}</div> 
           </div>
         )
       ) : (
@@ -82,7 +105,7 @@ const ExpandedCollection = ({ collection, type }) => {
       ) : (
         <></>
       )}
-    </div>
+    </m.div>
   );
 };
 

@@ -21,6 +21,7 @@
         .filter__wrapper {
             display: flex;
             gap: var(--gap);
+            overflow: hidden;
 
             .filter {
                 display: flex;
