@@ -239,8 +239,8 @@ nav .contact_btn {
     height: auto;
   }
 
-  .logo svg {
-    /* width: 150px; */
+  .logo svg:not(.small-logo) {
+    width: 150px;
     margin-top: .1em;
   }
 

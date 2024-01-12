@@ -7,7 +7,7 @@ export const listItem = [
   {
     title: "Projects",
     sublist: [],
-    url: "/#projects",
+    url: "/project",
   },
   {
     title: "Collections",
