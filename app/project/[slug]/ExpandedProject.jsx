@@ -42,10 +42,6 @@ const ExpandedProject = ({ project }) => {
         {project ? (
           <m.div
             className="project-main"
-            // data-scroll
-            // data-scroll-speed="7"
-            // data-scroll-position="top"
-            // ref={scrollRef}
             variants={{
               hidden: { staggerChildren: 0.1, staggerDirection: -1 },
               visible: { staggerChildren: 0.1, staggerDirection: -1 },

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import Image from "next/image";
 import { portfolioFont } from "@/utils/fonts";
@@ -7,14 +7,38 @@ import { motion as m } from "framer-motion";
 import { BrowserView, isDesktop } from "react-device-detect";
 
 const CollectionGallery = ({
+  open,
+  close,
   collection,
   currImageIdx,
   setCurrentImgId,
-  setGalleryOpen,
   setCurrImageIdx,
 }) => {
   const length = collection.length;
   const [infoOpen, setInfoOpen] = useState(false);
+  const [key, setKey] = useState(null);
+
+  // DETECT TOUCH 📱 - start
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const minSwipeDistance = 50;
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) updateImage.nextImg();
+    if (isRightSwipe) updateImage.prevImg();
+  };
+  // DETECT TOUCH 📱 - end
+
   const updateImage = {
     prevImg: () => {
       setCurrImageIdx(currImageIdx == 0 ? length - 1 : currImageIdx - 1);
@@ -29,40 +53,28 @@ const CollectionGallery = ({
       );
     },
   };
-  const detectSwipe = () => {
-    let touchstartX = 0;
-    let touchendX = 0;
 
-    const checkDirection = () => {
-      if (touchendX < touchstartX) updateImage.prevImg();
-      if (touchendX > touchstartX) updateImage.nextImg();
-    };
-
-    document.addEventListener("touchstart", (e) => {
-      touchstartX = e.changedTouches[0].screenX;
-    });
-
-    document.addEventListener("touchend", (e) => {
-      touchendX = e.changedTouches[0].screenX;
-      checkDirection();
-    });
-  };
-  detectSwipe();
-  const keyPressDetect = () => {
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") {
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      console.log('key down');
+      const key = e.key;
+      if (key === "ArrowLeft") {
         updateImage.prevImg();
-      } else if (e.key === "ArrowRight") {
+      } else if (key === "ArrowRight") {
         updateImage.nextImg();
-      } else if (e.key === "i") {
+      } else if (key === "i") {
         setInfoOpen(!infoOpen);
-      } else if (e.key === "Escape") {
+      } else if (key === "Escape") {
         setInfoOpen(false);
-        setGalleryOpen(false);
+        close();
       }
-    });
-  };
-  keyPressDetect();
+    };
+    document.addEventListener('keydown', handleKeyPress);
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [currImageIdx, infoOpen, open]);
+  
 
   const variants = {
     infoPannel: {
@@ -73,25 +85,20 @@ const CollectionGallery = ({
       hidden: { opacity: 0, y: 50 },
       visible: { opacity: 1, y: 0 },
     },
-    image : {
-      
-    }
+    image: {},
   };
 
-  return (
+  return open ? (
     <m.div
       className={`collection__gallery ${portfolioFont.className}`}
-      onKeyDown={() => {
-        if (e.key === "ArrowLeft") {
-          updateImage.prevImg();
-        }
-        if (e.key === "ArrowRight") {
-          updateImage.nextImg();
-        }
-      }}
       initial="hidden"
       animate="visible"
       exit="hidden"
+      onTouchMove={onTouchMove}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+      // tabIndex={1}
+      // onKeyDown={(e) => handleKeyPress(e)}
     >
       <div className="topbar">
         <svg
@@ -101,9 +108,7 @@ const CollectionGallery = ({
           viewBox="0 0 41 28"
           fill="none"
           className="back-icon icon"
-          onClick={() => {
-            setGalleryOpen(false);
-          }}
+          onClick={close}
         >
           <path
             d="M39 15.815C40.0024 15.815 40.815 15.0024 40.815 14C40.815 12.9976 40.0024 12.185 39 12.185V15.815ZM0.716602 12.7166C0.00780106 13.4254 0.00780106 14.5746 0.716602 15.2834L12.2672 26.834C12.976 27.5428 14.1252 27.5428 14.834 26.834C15.5428 26.1252 15.5428 24.976 14.834 24.2672L4.5668 14L14.834 3.73281C15.5428 3.02401 15.5428 1.87481 14.834 1.16601C14.1252 0.45721 12.976 0.45721 12.2672 1.16601L0.716602 12.7166ZM39 12.185L2 12.185V15.815L39 15.815V12.185Z"
@@ -207,7 +212,7 @@ const CollectionGallery = ({
           <m.div className="images__wrapper">
             {currImageIdx >= 0 ? (
               <Image
-                alt={collection[currImageIdx].imageDescription}
+                alt={"collection[currImageIdx].imageDescription"}
                 src={collection[currImageIdx].image.url}
                 className="image"
                 width={collection[currImageIdx].image.width}
@@ -431,6 +436,8 @@ const CollectionGallery = ({
         )}
       </div>
     </m.div>
+  ) : (
+    ""
   );
 };
 

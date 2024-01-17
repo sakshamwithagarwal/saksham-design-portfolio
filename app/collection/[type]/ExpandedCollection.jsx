@@ -53,7 +53,7 @@ const ExpandedCollection = ({ collection, type }) => {
         collection.length ? (
           <m.div
             className="collection__grid"
-            variants={{hidden: {opacity: 0}, visible: {opacity: 1}}}
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
             transition={{ staggerChildren: 0.2 }}
           >
             {collection.map((item, idx) => (
@@ -93,18 +93,15 @@ const ExpandedCollection = ({ collection, type }) => {
         <></>
       )}
 
-      {galleryOpen ? (
-        <CollectionGallery
-          collection={collection}
-          currentImgId={currentImgId}
-          currImageIdx={currImageIdx}
-          setCurrentImgId={setCurrentImgId}
-          setGalleryOpen={setGalleryOpen}
-          setCurrImageIdx={setCurrImageIdx}
-        />
-      ) : (
-        <></>
-      )}
+      <CollectionGallery
+        open={galleryOpen}
+        close={() => setGalleryOpen(false)}
+        collection={collection}
+        currentImgId={currentImgId}
+        currImageIdx={currImageIdx}
+        setCurrentImgId={setCurrentImgId}
+        setCurrImageIdx={setCurrImageIdx}
+      />
     </m.div>
   );
 };

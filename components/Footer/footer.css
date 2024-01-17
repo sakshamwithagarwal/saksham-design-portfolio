@@ -12,7 +12,7 @@ footer {
     left: -5vw;
     /* display: flex; */
     justify-content: space-between;
-    background: #121217;
+    background: #050505;
     width: 100vw;
     padding: 5rem 5vw;
 }
@@ -34,7 +34,7 @@ footer {
 [data-theme="light"] {
     .footer__main {
         border: 1px solid #2B2B2B;
-        background: #DED2C6;
+        background: #ece2d8;
     }
 }
 
