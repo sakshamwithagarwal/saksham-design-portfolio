@@ -3,7 +3,7 @@ import AboutCL from "./AboutCL";
 
 const getSpotifySong = async () => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/spotify`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/about`
   );
   if (!response.ok) {
     throw new Error(`Error while fetching song from spotify.`);
