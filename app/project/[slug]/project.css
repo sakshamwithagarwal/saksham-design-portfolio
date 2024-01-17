@@ -25,7 +25,8 @@
 
 /* .project-thumbnail {} */
 
-.project-content-container img {
+.project-content-container img,
+.project-content-wrapper video {
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -39,7 +40,8 @@
 .project-thumbnail,
 /* .project-content-wrapper, */
 .project-content,
-.project-content-wrapper img {
+.project-content-wrapper img,
+.project-content-wrapper video {
     margin-bottom: 4em;
 }
 
@@ -100,11 +102,13 @@
     .project-thumbnail,
     /* .project-content-wrapper, */
     .project-content,
-    .project-content-wrapper img {
+    .project-content-wrapper img,
+    .project-content-wrapper video {
         margin-bottom: 1em;
     }
 
-    .project-thumbnail img {
+    .project-thumbnail img,
+    .project-content-wrapper video {
         border-radius: 12px;
     }
 

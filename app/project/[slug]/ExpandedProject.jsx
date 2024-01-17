@@ -29,6 +29,18 @@ const ExpandedProject = ({ project }) => {
   // 🔝 Scroll to top on load
   useEffect(() => {
     document.querySelector(".project-container").scrollTop = 0;
+    const videoElements = document.getElementsByTagName("video");
+    console.log(videoElements);
+
+    if(videoElements.length) {
+      for(let i = 0; i < videoElements.length; i++)
+      {
+        videoElements[i].autoplay = true;
+        videoElements[i].muted = true;
+        videoElements[i].loop = true;
+        videoElements[i].controls = false;
+      }
+    }
   }, []);
   return (
     <div style={{ height: "100%", width: "100%" }}>
