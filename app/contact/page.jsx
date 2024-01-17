@@ -3,6 +3,7 @@ import ContactCL from "./Contact";
 import { getNowPlaying } from "@/lib/spotify";
 
 const Contact = async () => {
+  const song = await getNowPlaying();
   const isPlaying = song.is_playing;
   const albumImageUrl = isPlaying
     ? song.item.album.images[0].url
