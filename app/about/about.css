@@ -217,6 +217,7 @@
 
     .about__picture-wrapper {
         width: 100%;
+        margin-bottom: 2rem;
     }
 
     .about__picture {
