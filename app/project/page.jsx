@@ -3,7 +3,7 @@ import AllProjectsPage from "./AllProjects";
 
 const getProjects = async () => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api`, {next: {revalidate: 3600}}
+    `${process.env.NEXT_PUBLIC_API_URL}/api`, {cache: "no-store"}
   );
 
   if (!response.ok) {
