@@ -15,13 +15,9 @@ export async function GET() {
               url
               height
               width
-              fileName
             }
             tags
             slug
-            projectContent {
-              html
-            }
           }
         }
         `
