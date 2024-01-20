@@ -56,7 +56,6 @@ const CollectionGallery = ({
 
   useEffect(() => {
     const handleKeyPress = (e) => {
-      console.log('key down');
       const key = e.key;
       if (key === "ArrowLeft") {
         updateImage.prevImg();

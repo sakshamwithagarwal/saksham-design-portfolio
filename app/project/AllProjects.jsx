@@ -8,7 +8,7 @@ import { AllProjects } from "@/components";
 import NoItem from "@/components/NoChildren/NoItem";
 
 const AllProjectsPage = ({ projects }) => {
-  const filters = ["Product", "Packaging", "Visual Identity", "UI/UX"];
+  const filters = ["Product", "Packaging", "Visual Identity", "UX"];
   const [filterSelected, setFilterSelected] = useState(false);
   const [filterActive, setFilterActive] = useState("");
   const handleClick = (f) => {

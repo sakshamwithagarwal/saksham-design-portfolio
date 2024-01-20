@@ -2,13 +2,23 @@ import "./contact.css";
 import ContactCL from "./Contact";
 import { getNowPlaying } from "@/lib/spotify";
 
+const getNowPlaying_ = async () => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/spotify`,
+    { cache: "no-store" }
+  );
+
+  if(!response.ok) {
+    throw new Error('Failed to fetch song in about.');
+  }
+
+  return response.json();
+};
+
 const Contact = async () => {
-  const song = await getNowPlaying();
-  const albumImageUrl = song.item.album.images[0].url;
-  const songUrl = song.item.external_urls.spotify;
-  // const albumImageUrl =
-  //   "https://i.scdn.co/image/ab67616d0000b2738a70ce320d5c991f47f52b6f";
-  // const songUrl = "https://open.spotify.com/track/7rwZD6MHLSuF2d9h5bnZPz";
+  const song = await getNowPlaying_();
+  const albumImageUrl = song.albumImageUrl;
+  const songUrl = song.songUrl;
 
   return <ContactCL albumArt={albumImageUrl} songURL={songUrl} />;
 };

@@ -30,7 +30,6 @@ const ExpandedProject = ({ project }) => {
   useEffect(() => {
     document.querySelector(".project-container").scrollTop = 0;
     const videoElements = document.getElementsByTagName("video");
-    console.log(videoElements);
 
     if(videoElements.length) {
       for(let i = 0; i < videoElements.length; i++)
