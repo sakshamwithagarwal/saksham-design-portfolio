@@ -37,7 +37,7 @@ const PrivacyPolicy = async () => {
             <div className="static-content">
               <p>Last Updated: {getDate()}</p>
               <p>
-                Welcome to Saksham's Design Portfolio Website. This Privacy
+                Welcome to Saksham&apos;s Design Portfolio Website. This Privacy
                 Policy outlines how we collect, use, and safeguard personal
                 information obtained through the use of our Website.
               </p>

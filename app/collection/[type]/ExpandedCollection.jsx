@@ -5,7 +5,7 @@ import "./collection_page.css";
 import { motion as m } from "framer-motion";
 import { portfolioFont } from "@/utils/fonts";
 import CollectionGallery from "./CollectionGallery";
-import { NoItem } from "@/components";
+import NoItem from "@/components/NoChildren/NoItem";
 
 const ExpandedCollection = ({ collection, type }) => {
   const [galleryOpen, setGalleryOpen] = useState(false);
