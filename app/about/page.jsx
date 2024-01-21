@@ -1,4 +1,4 @@
-import { getNowPlaying } from "@/lib/spotify";
+import { Footer } from "@/components";
 import "./about.css";
 import AboutCL from "./AboutCL";
 
@@ -20,7 +20,10 @@ const About = async () => {
   const albumImageUrl = song.albumImageUrl;
   const songUrl = song.songUrl;
 
-  return <AboutCL songURL={songUrl} albumArt={albumImageUrl} />;
+  return <>
+  <AboutCL songURL={songUrl} albumArt={albumImageUrl} />
+  <Footer />
+  </>
 };
 
 export default About;

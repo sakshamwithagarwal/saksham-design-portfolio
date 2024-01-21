@@ -8,8 +8,6 @@ const getNowPlaying_ = async () => {
     { cache: "no-store" }
   );
 
-  console.log('Response in contact is:',response.ok);
-
   if(!response.ok) {
     throw new Error('Failed to fetch song in contact.');
   }

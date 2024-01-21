@@ -1,11 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import "./collection_page.css";
 import { motion as m } from "framer-motion";
 import { portfolioFont } from "@/utils/fonts";
 import CollectionGallery from "./CollectionGallery";
-import NoItem from "@/components/NoChildren/NoItem";
+import { NoItem } from "@/components";
 
 const ExpandedCollection = ({ collection, type }) => {
   const [galleryOpen, setGalleryOpen] = useState(false);

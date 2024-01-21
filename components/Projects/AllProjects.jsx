@@ -18,7 +18,7 @@ const AllProjects = (props) => {
         transition={{ ease: "easeInOut" }}
         viewport={{ once: true }}
       >
-        <h3>Projects</h3>
+        <h3>Featured Projects</h3>
       </motion.div>
       <div className="section_container">
         {!props.projects ? (

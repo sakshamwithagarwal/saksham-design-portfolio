@@ -18,7 +18,7 @@ const Provider = ({ children, ...props }) => {
     },
   });
 
-  if (!mounted) return <>{children}</>;
+  // if (!mounted) return <>{children}</>;
 
   return (
     <ThemeProvider>
@@ -28,7 +28,7 @@ const Provider = ({ children, ...props }) => {
           <></>
         ) : (
           <>
-            {children[1]} {children[2]}
+            {children[1]}
           </>
         )}
       </AnimatePresence>

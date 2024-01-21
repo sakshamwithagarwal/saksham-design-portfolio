@@ -1,4 +1,4 @@
-import { AllProjects, Collections, Main, Background } from "@/components";
+import { AllProjects, Collections, Main, Footer } from "@/components";
 
 const getProjects = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api`, {
@@ -15,10 +15,10 @@ export default async function Home() {
 
   return (
     <div>
-      <Background />
       <Main />
       <AllProjects projects={projectsData} />
       <Collections />
+      <Footer />
     </div>
   );
 }

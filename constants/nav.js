@@ -32,22 +32,22 @@ export const listItem = [
     url: "/about",
     sublist: [],
   },
-  {
-    title: "Contact",
-    sublist: [
-      // {
-      //   title: "Instagram",
-      //   url: "https://www.instagram.com/sakshamwithagarwal",
-      // },
-      // {
-      //   title: "Behance",
-      //   url: "https://www.behance.net/sakshamwithagarwal",
-      // },
-      // {
-      //   title: "LinkedIn",
-      //   url: "https://www.linkedin.com/in/saksham-parag-agarwal-b063711b3",
-      // },
-    ],
-    url: "/contact",
-  },
+  // {
+  //   title: "Contact",
+  //   sublist: [
+  //     // {
+  //     //   title: "Instagram",
+  //     //   url: "https://www.instagram.com/sakshamwithagarwal",
+  //     // },
+  //     // {
+  //     //   title: "Behance",
+  //     //   url: "https://www.behance.net/sakshamwithagarwal",
+  //     // },
+  //     // {
+  //     //   title: "LinkedIn",
+  //     //   url: "https://www.linkedin.com/in/saksham-parag-agarwal-b063711b3",
+  //     // },
+  //   ],
+  //   url: "/contact",
+  // },
 ];

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { portfolioFont } from "@/utils/fonts";
 import Link from "next/link";
 
-const Main = ({ compRef }) => {
+const Main = () => {
   const handleClickToScroll = () => {
     compRef.current.scrollIntoView({ behavior: "smooth" });
   };
