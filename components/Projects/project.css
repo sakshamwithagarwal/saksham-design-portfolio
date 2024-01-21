@@ -144,6 +144,12 @@
   }
 }
 
+@media screen and (max-width: 320px) {
+  .project__tags {
+    font-size: .5em;
+  }
+}
+
 .model-viewer {
   width: 100%;
   min-height: 50vh;

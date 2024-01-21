@@ -63,7 +63,7 @@
 }
 
 .about__content p span {
-    color: #F15412;
+    color: var(--accent);
     text-decoration: underline;
 }
 

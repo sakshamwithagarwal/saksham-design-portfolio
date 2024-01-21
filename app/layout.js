@@ -15,7 +15,12 @@ export default function RootLayout({ children }) {
         <Noise />
         {typeof window === "undefined" ? <Cursor /> : ""}
         <Background />
-        <Provider>
+        <Provider
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Navbar />
           {children}
           <Footer />

@@ -56,7 +56,7 @@
   }
 
   &:hover .view_icon-collection .icon-wrapper {
-    background: #F15412;
+    background: var(--accent);
   }
 }
 

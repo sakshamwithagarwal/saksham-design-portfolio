@@ -3,7 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "next-themes";
 import React, { useState, useEffect } from "react";
 
-const Provider = ({ children }) => {
+const Provider = ({ children, ...props }) => {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 

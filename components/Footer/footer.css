@@ -27,7 +27,7 @@ footer {
 } */
 
 .footer__wrapper a {
-    color: #F15412;
+    color: var(--accent);
     text-decoration: underline;
 }
 
