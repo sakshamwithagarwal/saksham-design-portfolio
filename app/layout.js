@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Background, Cursor, Footer, Navbar, Noise } from "@/components";
+import { Cursor, Footer, Navbar, Noise } from "@/components";
 import { open_sans } from "@/utils/fonts";
 import Provider from "./provider";
 
@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body className={open_sans.className}>
         <Noise />
         {typeof window === "undefined" ? <Cursor /> : ""}
-        <Background />
+
         <Provider
           attribute="data-theme"
           defaultTheme="system"

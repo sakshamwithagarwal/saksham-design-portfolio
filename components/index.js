@@ -8,3 +8,4 @@ export {default as Collections} from './Collections/Collections'
 export {default as Cursor} from './Cursor/Cursor'
 export {default as ToolCard} from './ToolCard/ToolCard'
 export {default as Footer} from './Footer/Footer'
+export {default as ThemeProvider}

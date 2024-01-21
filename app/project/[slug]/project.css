@@ -118,7 +118,7 @@
     }
 
     .project-content-wrapper p {
-        font-size: .8em;
+        font-size: calc(.8em - 4px);
         margin-left: .5em;
     }
 
