@@ -67,7 +67,7 @@ const Footer = () => {
                       >
                         <path
                           d="M1 10.27L9.82 1.44995M9.82 1.44995H3.28927M9.82 1.44995V7.96291"
-                          stroke="#83878D"
+                          stroke="var(--text-main)"
                           strokeWidth="1.6"
                           strokeMiterlimit="10"
                         />

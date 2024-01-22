@@ -88,11 +88,19 @@
   color: var(--text-main);
 }
 
+.projects .see-more {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  margin: 4rem 0 2rem;
+}
+
 @media screen and (max-width: 768px) {
   .projects .section_container ol {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 
 @media screen and (max-width: 600px) {
   .projects .section_container ol {
@@ -109,7 +117,7 @@
     font-size: 3.5em;
   }
 
-  .project__tags > div {
+  .project__tags>div {
     border-width: 1px;
   }
 }
@@ -139,9 +147,9 @@
 }
 
 @media screen and (max-width: 480px) {
-  .projects .section_container ol li {
+  /* .projects .section_container ol li {
     padding: 0.6em;
-  }
+  } */
 }
 
 @media screen and (max-width: 400px) {

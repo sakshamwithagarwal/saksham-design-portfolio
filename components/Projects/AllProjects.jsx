@@ -1,7 +1,8 @@
-'use client'
+"use client";
 import Project from "./Project";
 import { motion } from "framer-motion";
 import { portfolioFont } from "@/utils/fonts";
+import Link from "next/link";
 
 const AllProjects = (props) => {
   // useEffect(() => {
@@ -36,6 +37,14 @@ const AllProjects = (props) => {
           </motion.ol>
         )}
       </div>
+      <motion.div
+        initial={{ y: 50 }}
+        whileInView={{ y: 0 }}
+        transition={{ ease: "easeInOut", delay: 0 }}
+        className={`${portfolioFont.className} see-more`}
+      >
+        <Link href={"/project"}>see all projects</Link>
+      </motion.div>
     </section>
   );
 };

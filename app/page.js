@@ -10,13 +10,20 @@ const getProjects = async () => {
   return response.json();
 };
 
+const sortByPriority = (data) => {
+  return data.sort((a, b) => {
+    return a.priority - b.priority
+  })
+}
+
 export default async function Home() {
   const projectsData = await getProjects();
+  const projectSorted = sortByPriority(projectsData)
 
   return (
     <div>
       <Main />
-      <AllProjects projects={projectsData} />
+      <AllProjects projects={projectSorted} />
       <Collections />
       <Footer />
     </div>

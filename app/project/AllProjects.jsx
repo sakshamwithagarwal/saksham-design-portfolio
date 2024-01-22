@@ -2,13 +2,13 @@
 import { useState } from "react";
 import { motion as m } from "framer-motion";
 import "./project.css";
+import { filters } from "@/constants/filters";
 
 import { open_sans, portfolioFont } from "@/utils/fonts";
 import { AllProjects } from "@/components";
 import NoItem from "@/components/NoChildren/NoItem";
 
 const AllProjectsPage = ({ projects }) => {
-  const filters = ["Product", "Packaging", "Visual Identity", "User Experience"];
   const [filterSelected, setFilterSelected] = useState(false);
   const [filterActive, setFilterActive] = useState("");
   const handleClick = (f) => {
@@ -68,18 +68,22 @@ const AllProjectsPage = ({ projects }) => {
           {filters.map((filter, idx) => (
             <m.div
               variants={variants.filter}
-              transition={{ staggerChildren: 0.3, staggerDirection: 1, duration: 0.2 }}
+              transition={{
+                staggerChildren: 0.3,
+                staggerDirection: 1,
+                duration: 0.2,
+              }}
               // transition={{ staggerChildren: 0.1 }}
               key={idx}
               className={filterSelected ? "filter selected" : "filter"}
               style={
-                filterSelected && filterActive !== filter
+                filterSelected && filterActive !== filter.tag
                   ? { display: "none" }
                   : {}
               }
-              onClick={() => handleClick(filter)}
+              onClick={() => handleClick(filter.tag)}
             >
-              <m.span>{filter}</m.span>
+              <m.span>{filter.title}</m.span>
               {filterActive ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +107,11 @@ const AllProjectsPage = ({ projects }) => {
           ))}
         </m.div>
       </div>
-      {filtered.length ? <AllProjects projects={filtered} /> : <NoItem item={'Projects'}/>}
+      {filtered.length ? (
+        <AllProjects projects={filtered} />
+      ) : (
+        <NoItem item={"Projects"} />
+      )}
     </m.div>
   );
 };
