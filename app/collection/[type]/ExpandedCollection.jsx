@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import "./collection_page.css";
 import { motion as m } from "framer-motion";
@@ -8,9 +8,13 @@ import CollectionGallery from "./CollectionGallery";
 import NoItem from "@/components/NoChildren/NoItem";
 
 const ExpandedCollection = ({ collection, type }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [currentImgId, setCurrentImgId] = useState("-");
   const [currImageIdx, setCurrImageIdx] = useState(-1);
+  const [numColumns, setNumColumns] = useState(0);
 
   const handleGalleryClick = (obj) => {
     setCurrentImgId(obj.id);
@@ -33,6 +37,69 @@ const ExpandedCollection = ({ collection, type }) => {
       visible: { opacity: 1, y: 0 },
     },
   };
+
+  //collections grid
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 576) {
+        setNumColumns(2);
+      } else if (window.innerWidth <= 768) {
+        setNumColumns(3);
+      } else {
+        setNumColumns(4);
+      }
+    };
+    // Initial setup
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const createImageElement = (item) => {
+    return (
+      <m.div
+        variants={variants.image}
+        transition={{ duration: 0.3 }}
+        key={item.id}
+        className="collection__image"
+        onClick={() => handleGalleryClick(item)}
+      >
+        <Image
+          alt="Collection of Work"
+          src={item.image.url}
+          className="image"
+          layout="fill"
+          objectFit="cover"
+        />
+      </m.div>
+    );
+  };
+
+  const createImageColumn = (columnImages) => {
+    return (
+      <div className="column">
+        {columnImages.map((item, idx) => createImageElement(item))}
+      </div>
+    );
+  };
+
+  const createImageGrid = (images) => {
+    const grid = [];
+
+    for (let i = 0; i < numColumns; i++) {
+      const columnImages = images.filter(
+        (image, index) => index % numColumns === i
+      );
+      const columnElement = createImageColumn(columnImages);
+      grid.push(columnElement);
+    }
+
+    return grid;
+  };
+
   return (
     <m.div
       className="collection"
@@ -56,23 +123,36 @@ const ExpandedCollection = ({ collection, type }) => {
             variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
             transition={{ staggerChildren: 0.2 }}
           >
-            {collection.map((item, idx) => (
-              <m.div
-                variants={variants.image}
-                transition={{ duration: 0.3 }}
-                key={idx}
-                className="collection__image"
-                onClick={() => handleGalleryClick(item)}
+            {/* {collection.map((item, idx) => (
+              <div
+                style={{
+                  height: "fit-content",
+                  border: "1px solid",
+                  width: "25%",
+                }}
               >
-                <Image
-                  alt="Collection of Work"
-                  src={item.image.url}
-                  className="image"
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </m.div>
-            ))}
+                <m.div
+                  variants={variants.image}
+                  transition={{ duration: 0.3 }}
+                  key={idx}
+                  className="collection__image"
+                  onClick={() => handleGalleryClick(item)}
+                  style={{ border: "1px solid red" }}
+                >
+                  <Image
+                    alt="Collection of Work"
+                    src={item.image.url}
+                    className="image"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{
+                      aspectRatio: `${item.image.width / item.image.height}`,
+                    }}
+                  />
+                </m.div>
+              </div>
+            ))} */}
+            {createImageGrid(collection)}
           </m.div>
         ) : (
           <div className="no__content">

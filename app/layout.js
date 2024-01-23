@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body className={open_sans.className}>
         <Noise />
         <Background />
-        <ScrollTop />
+        {/* <ScrollTop /> */}
         {typeof window === "undefined" ? <Cursor /> : ""}
         <Provider
           attribute="data-theme"

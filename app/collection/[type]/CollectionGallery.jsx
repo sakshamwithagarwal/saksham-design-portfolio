@@ -14,6 +14,9 @@ const CollectionGallery = ({
   setCurrentImgId,
   setCurrImageIdx,
 }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const length = collection.length;
   const [infoOpen, setInfoOpen] = useState(false);
   const [key, setKey] = useState(null);
