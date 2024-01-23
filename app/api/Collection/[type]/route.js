@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-// import { getCollection } from "@/lib/collections";
 import { request } from "graphql-request";
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(req, { params }) {
   try {
