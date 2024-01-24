@@ -69,7 +69,7 @@ const ExpandedCollection = ({ collection, type }) => {
       >
         <Image
           alt="Collection of Work"
-          src={item.image.url}
+          src={item.url}
           className="image"
           layout="fill"
           objectFit="cover"
@@ -86,8 +86,10 @@ const ExpandedCollection = ({ collection, type }) => {
     );
   };
 
-  const createImageGrid = (images) => {
+  const createImageGrid = (collection) => {
     const grid = [];
+
+    const images = collection.flatMap(el => el.collectionImages)
 
     for (let i = 0; i < numColumns; i++) {
       const columnImages = images.filter(
