@@ -18,12 +18,12 @@ export const metadata = {
   metadataBase: new URL("https://sakshamparag.com"),
   openGraph: {
     title: "Saksham Parag Agarwal",
-    description: "Design portfolio",
+    description: "Saksham Parag Agarwal, a 21-year-old product designer, intricately weaves inspiration from music and comics into his designs, reflecting a commitment to eco-consciousness and the right to repair in the design world.",
     type: "website",
   },
   twitter: {
     title: "Saksham Parag Agarwal",
-    description: "Design portfolio",
+    description: "Saksham Parag Agarwal, a 21-year-old product designer, intricately weaves inspiration from music and comics into his designs, reflecting a commitment to eco-consciousness and the right to repair in the design world.",
   },
 };
 
