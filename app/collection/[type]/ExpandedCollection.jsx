@@ -15,12 +15,18 @@ const ExpandedCollection = ({ collection, type }) => {
   const [currentImgId, setCurrentImgId] = useState("-");
   const [currImageIdx, setCurrImageIdx] = useState(-1);
   const [numColumns, setNumColumns] = useState(0);
+  const collectionArr = collection.flatMap((collection_single) =>
+    collection_single.collectionImages.map((image) => ({
+      ...image,
+      imageDescription: collection_single.imageDescription,
+    }))
+  );
 
   const handleGalleryClick = (obj) => {
     setCurrentImgId(obj.id);
 
     setCurrImageIdx(
-      collection.findIndex((item) => {
+      collectionArr.findIndex((item) => {
         return item.id === obj.id;
       })
     );
@@ -86,15 +92,15 @@ const ExpandedCollection = ({ collection, type }) => {
     );
   };
 
-  const createImageGrid = (collection) => {
+  const createImageGrid = (images) => {
     const grid = [];
-
-    const images = collection.flatMap(el => el.collectionImages)
+    console.log("all imahes->", images);
 
     for (let i = 0; i < numColumns; i++) {
       const columnImages = images.filter(
         (image, index) => index % numColumns === i
       );
+      console.log(columnImages, i, "array");
       const columnElement = createImageColumn(columnImages);
       grid.push(columnElement);
     }
@@ -154,7 +160,7 @@ const ExpandedCollection = ({ collection, type }) => {
                 </m.div>
               </div>
             ))} */}
-            {createImageGrid(collection)}
+            {collectionArr ? createImageGrid(collectionArr): ''}
           </m.div>
         ) : (
           <div className="no__content">
@@ -178,7 +184,7 @@ const ExpandedCollection = ({ collection, type }) => {
       <CollectionGallery
         open={galleryOpen}
         close={() => setGalleryOpen(false)}
-        collection={collection}
+        collection={collectionArr ? collectionArr : []}
         currentImgId={currentImgId}
         currImageIdx={currImageIdx}
         setCurrentImgId={setCurrentImgId}

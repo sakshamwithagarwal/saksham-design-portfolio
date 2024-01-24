@@ -18,6 +18,7 @@ export async function GET(req, { params }) {
                   height
                   width
                   url
+                  id
                 }
               }
             }

@@ -71,12 +71,11 @@ const CollectionGallery = ({
         close();
       }
     };
-    document.addEventListener('keydown', handleKeyPress);
+    document.addEventListener("keydown", handleKeyPress);
     return () => {
-      document.removeEventListener('keydown', handleKeyPress);
+      document.removeEventListener("keydown", handleKeyPress);
     };
   }, [currImageIdx, infoOpen, open]);
-  
 
   const variants = {
     infoPannel: {
@@ -215,10 +214,10 @@ const CollectionGallery = ({
             {currImageIdx >= 0 ? (
               <Image
                 alt={"collection[currImageIdx].imageDescription"}
-                src={collection[currImageIdx].image.url}
+                src={collection[currImageIdx].url}
                 className="image"
-                width={collection[currImageIdx].image.width}
-                height={collection[currImageIdx].image.height}
+                width={collection[currImageIdx].width}
+                height={collection[currImageIdx].height}
                 style={{ height: "100%", width: "100%", objectFit: "contain" }}
               />
             ) : (
@@ -285,7 +284,7 @@ const CollectionGallery = ({
                 }}
               >
                 <m.li
-                  title={collection[currImageIdx].image.fileName}
+                  title={collection[currImageIdx].fileName}
                   variants={variants.head}
                 >
                   <svg
@@ -314,7 +313,7 @@ const CollectionGallery = ({
                       strokeMiterlimit="10"
                     />
                   </svg>
-                  <span>{collection[currImageIdx].image.fileName}</span>
+                  <span>{collection[currImageIdx].fileName}</span>
                 </m.li>
                 <m.li variants={variants.head}>
                   <svg
@@ -357,8 +356,8 @@ const CollectionGallery = ({
                       strokeMiterlimit="10"
                     />
                   </svg>
-                  {collection[currImageIdx].image.width} X{" "}
-                  {collection[currImageIdx].image.height}
+                  {collection[currImageIdx].width} X{" "}
+                  {collection[currImageIdx].height}
                 </m.li>
                 <m.li variants={variants.head}>
                   <svg
@@ -381,7 +380,7 @@ const CollectionGallery = ({
                       fill="var(--text-main)"
                     />
                   </svg>{" "}
-                  {(collection[currImageIdx].image.size / 1e6).toFixed(1)} MB
+                  {(collection[currImageIdx].size / 1e6).toFixed(1)} MB
                 </m.li>
               </m.ul>
             </div>
