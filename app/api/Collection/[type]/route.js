@@ -12,13 +12,6 @@ export async function GET(req, { params }) {
                 collectionType
                 imageDescription
                 id
-                image {
-                  fileName
-                  height
-                  width
-                  url
-                  size
-                }
                 collectionImages(first: 500) {
                   size
                   fileName
