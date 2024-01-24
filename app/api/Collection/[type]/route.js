@@ -19,6 +19,13 @@ export async function GET(req, { params }) {
                   url
                   size
                 }
+                collectionImages(first: 500) {
+                  size
+                  fileName
+                  height
+                  width
+                  url
+                }
               }
             }
           `,
