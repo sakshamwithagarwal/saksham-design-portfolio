@@ -19,7 +19,6 @@ export const metadata = {
   openGraph: {
     title: "Saksham Parag Agarwal",
     description: "Design portfolio",
-    images: "/og-image.png",
     type: "website",
   },
   twitter: {
