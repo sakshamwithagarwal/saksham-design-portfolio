@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import "./project.css";
 import { motion, useInView } from "framer-motion";
 import { open_sans, portfolioFont } from "@/utils/fonts";
 import Image from "next/image";

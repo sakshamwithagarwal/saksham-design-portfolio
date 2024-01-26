@@ -44,7 +44,6 @@ const Page = async ({ params }) => {
   };
   const collectionType = collection_type();
   const response = await getCollection(params);
-  // console.log(response);
 
   return (
     <ExpandedCollection

@@ -2,7 +2,6 @@ import "./globals.css";
 import {
   Background,
   Cursor,
-  Footer,
   Navbar,
   Noise,
   ScrollTop,
