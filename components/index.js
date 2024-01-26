@@ -9,4 +9,5 @@ export {default as Project} from "./Projects/Project"
 export {default as AllProjects} from './Projects/AllProjects'
 export {default as ToolCard} from './ToolCard/ToolCard'
 export {default as ScrollTop} from './ScrollToTop/ScrollTop'
+export {default as Loader} from './Loader/Loader'
 // export {default as Spotify} from './Spotify/Spotify'
