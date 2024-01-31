@@ -47,7 +47,7 @@ const Main = () => {
             animate={animation.animate}
             transition={animation.transition}
           >
-            Packaging
+            Interaction
           </motion.span>
           <motion.span
             animate={animation.animate}
@@ -74,7 +74,7 @@ const Main = () => {
               animate={animation.animate}
               transition={animation.transition}
             >
-              Packag
+              Interac
             </motion.span>
             <motion.span
               animate={animation.animate}
@@ -102,7 +102,7 @@ const Main = () => {
                 animate={animation.animate}
                 transition={animation.transition}
               >
-                ing
+                tion
               </motion.span>
               <motion.span
                 animate={animation.animate}
