@@ -94,13 +94,11 @@ const ExpandedCollection = ({ collection, type }) => {
 
   const createImageGrid = (images) => {
     const grid = [];
-    console.log("all imahes->", images);
 
     for (let i = 0; i < numColumns; i++) {
       const columnImages = images.filter(
         (image, index) => index % numColumns === i
       );
-      console.log(columnImages, i, "array");
       const columnElement = createImageColumn(columnImages);
       grid.push(columnElement);
     }
