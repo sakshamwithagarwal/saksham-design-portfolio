@@ -1,4 +1,5 @@
 import ExpandedCollection from "./ExpandedCollection";
+import { dynamicBlurDataUrl } from "@/lib/dynamicBlurDataUrl";
 
 const getCollection = async (params) => {
   const response = await fetch(
@@ -12,6 +13,17 @@ const getCollection = async (params) => {
 
   return response.json();
 };
+
+// const getResources = async (data) => {
+//   const resources = await Promise.all(
+//     data.map(async(photo) => ({
+//       ...photo,
+//       blurHash: await dynamicBlurDataUrl(photo.url),
+//     }))
+//   );
+
+//   return resources;
+// };
 
 const Page = async ({ params }) => {
   const collection_type = () => {
@@ -44,6 +56,10 @@ const Page = async ({ params }) => {
   };
   const collectionType = collection_type();
   const response = await getCollection(params);
+  // const response_ = await getResources(
+  //   response.collections[0].collectionImages
+  // );
+  // console.log(response_);
 
   return (
     <ExpandedCollection

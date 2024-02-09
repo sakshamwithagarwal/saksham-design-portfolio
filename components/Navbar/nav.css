@@ -106,7 +106,7 @@ nav .contact_btn {
   align-items: center;
 
   width: 100%;
-  min-height: 89vh;
+  min-height: 85svh;
   padding-left: 10rem;
 
   position: absolute;
@@ -261,8 +261,6 @@ nav .contact_btn {
 
   .nav__list.active {
     padding-left: 1em;
-    min-height: 60vh;
-    margin-top: 12em;
   }
 
   .nav__sublist .listIcon {
