@@ -11,6 +11,7 @@
         grid-template-columns: repeat(4, 22vw);
         gap: .5rem;
         justify-content: space-between;
+
         .column {
             display: flex;
             flex-direction: column;
@@ -35,6 +36,12 @@
                 height: unset !important;
                 border-radius: .625rem;
                 transition: .3s;
+            }
+
+            &:hover {
+                .image {
+                    scale: 1.1;
+                }
             }
         }
 
@@ -62,6 +69,7 @@
         .collection__grid {
             grid-template-columns: repeat(2, 44vw);
             gap: .3rem 0;
+
             .column {
                 gap: .3rem 0;
             }
