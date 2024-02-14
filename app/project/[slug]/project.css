@@ -7,7 +7,7 @@
 }
 
 .project-main {
-    font-family: var(--portfolio-font-regular);
+    /* font-family: var(--portfolio-font-regular); */
     display: flex;
     align-items: center;
     justify-content: center;
