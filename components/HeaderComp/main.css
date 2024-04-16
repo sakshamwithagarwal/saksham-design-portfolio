@@ -196,7 +196,7 @@ main p {
 
   .hero__heading_row-1,
   .hero__heading_row-2 .hero__heading_col-2 {
-    height: clamp(5.2rem, 20vw, 10rem);
+    height: clamp(5rem, 20vw, 10rem);
     overflow: hidden;
   }
 
