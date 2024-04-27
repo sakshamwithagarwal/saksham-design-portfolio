@@ -30,7 +30,6 @@ const Project = ({ data }) => {
   };
 
   return (
-    <Link href={`/project/${data.slug}`}>
       <motion.li
         className="project hoverable"
         viewport={{ once: true }}
@@ -40,8 +39,8 @@ const Project = ({ data }) => {
         exit={"hidden"}
         whileInView={"visible"}
       >
-        <div className="thumbnail_wrapper">
-          <img src={data.projectThumbnail.url} alt={data.projectThumbnail.fileName} className="project__thumbnail" />
+        <Link href={`/project/${data.slug}`}>
+        {/* <div className="thumbnail_wrapper">
           {/* <Image
             loader={myLoader}
             src={data.projectThumbnail.url}
@@ -49,7 +48,10 @@ const Project = ({ data }) => {
             alt={data.projectThumbnail.fileName}
             width={data.projectThumbnail.width}
             height={data.projectThumbnail.height}
-          /> */}
+          /> 
+        </div> */}
+        <div className="thumbnail_wrapper">
+          <img src={data.projectThumbnail.url} alt={data.projectThumbnail.fileName} className="project__thumbnail" />
         </div>
         <div className="project_container">
           <div className={`project__title ${portfolioFont.className}`}>
@@ -67,8 +69,8 @@ const Project = ({ data }) => {
             ))}
           </div>
         </div>
+        </Link>
       </motion.li>
-    </Link>
   );
 };
 
