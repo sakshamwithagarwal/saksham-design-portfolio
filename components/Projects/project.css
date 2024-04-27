@@ -1,6 +1,5 @@
 .projects .section_container ol {
   list-style: none;
-  counter-reset: project-counter;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 4em 3em;
@@ -36,40 +35,27 @@
   }
 }
 
-.projects .section_container ol a:nth-child(3n) {
-  /* grid-column: 1 / span 2; */
-  aspect-ratio: 2;
-}
-
 .projects .section_container .project {
   width: 100%;
-  aspect-ratio: 2;
-
   background-size: cover;
-}
 
-.thumbnail_wrapper,
-.project__thumbnail {
-  width: inherit;
-  aspect-ratio: 1.99;
-  transition: .4s;
-  object-fit: cover;
-}
+  .thumbnail_wrapper {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    overflow: hidden;
+    aspect-ratio: 1.9;
+    
+    .project__thumbnail {
+      width: 100%;
+      object-fit: cover;
+      transition: .4s;
+    }
 
-.project__thumbnail {
-  object-fit: cover;
-  /* border: 1px solid white; */
-  aspect-ratio: 1.99;
-}
-
-.thumbnail_wrapper {
-  overflow: hidden;
-  border-radius: 5px;
-  display: flex;
-}
-
-.thumbnail_wrapper:hover .project__thumbnail {
-  scale: 1.1;
+    &:hover .project__thumbnail {
+      scale: 1.1;
+    }
+  }
 }
 
 .project_container {
