@@ -59,7 +59,6 @@ const Page = async ({ params }) => {
   // const response_ = await getResources(
   //   response.collections[0].collectionImages
   // );
-  // console.log(response_);
 
   return (
     <ExpandedCollection
