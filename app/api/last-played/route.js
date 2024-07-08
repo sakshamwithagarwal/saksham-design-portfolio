@@ -1,9 +1,10 @@
-import { getNowPlaying } from "@/lib/spotify";
+import { getLastPlayed } from "@/lib/spotify";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const response = await getNowPlaying();
+  const response = await getLastPlayed();
 
+  // 204 = Empty Response
   if (response.status === 204 || response.status > 400) {
     return NextResponse.json(
       {
@@ -19,9 +20,10 @@ export async function GET() {
     );
   }
 
-  const song = await response.json();
+  const res = await response.json();
+  const track = res.items[0].track;
 
-  if (song.item === null) {
+  if (res.items === null) {
     return NextResponse.json(
       {
         status: response.status,
@@ -36,10 +38,10 @@ export async function GET() {
     );
   }
 
-  const isPlaying = song.is_playing;
-  const title = song.item.name;
-  const albumImageUrl = song.item.album.images[0].url;
-  const songUrl = song.item.external_urls.spotify;
+//   const isPlaying = song.is_playing;
+  const title = track.album.name;
+  const albumImageUrl = track.album.images[0].url;
+  const songUrl = track.album.external_urls.spotify;
 
-  return NextResponse.json({ isPlaying, title, albumImageUrl, songUrl });
+  return NextResponse.json({ title, albumImageUrl, songUrl });
 }
