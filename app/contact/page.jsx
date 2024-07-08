@@ -1,22 +1,22 @@
 import "./contact.css";
 import ContactCL from "./Contact";
-import { getNowPlaying } from "@/lib/spotify";
+// import { getNowPlaying } from "@/lib/spotify";
 
-const getNowPlaying_ = async () => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/spotify`,
-    { cache: "no-store" }
-  );
-
-  if(!response.ok) {
-    throw new Error('Failed to fetch song in contact.');
-  }
-
-  return response.json();
-};
+const getLastPlayed = async () => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/last-played`, {
+     method: "GET",
+     cache: "no-store",
+   });
+ 
+   if (!response.ok) {
+     throw new Error("Failed to fetch song in about.");
+   }
+ 
+   return response.json();
+ };
 
 const Contact = async () => {
-  const song = await getNowPlaying_();
+  const song = await getLastPlayed();
   const albumImageUrl = song.albumImageUrl;
   const songUrl = song.songUrl;
 
