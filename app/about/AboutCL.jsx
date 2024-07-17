@@ -7,6 +7,7 @@ import Spotify from "@/components/Spotify/Spotify";
 import { open_sans, portfolioFont } from "@/utils/fonts";
 import Link from "next/link";
 import Image from "next/image";
+import { getAge } from "@/lib/getAge";
 
 const AboutCL = ({songURL, albumArt}) => {
   return (
@@ -53,7 +54,7 @@ const AboutCL = ({songURL, albumArt}) => {
             transition={{ duration: 0.25, delay: 0.45, ease: "easeOut" }}
             className={open_sans.className}
           >
-            Hey, my name is <span>Saksham Parag Agarwal</span>. I&apos;m 21 and
+            Hey, my name is <span>Saksham Parag Agarwal</span>. I&apos;m {getAge()} and
             I am a <span>Product & Packaging Designer</span>. I create designs
             that are both sustainable and universal. Supporter for right to
             repair & sustainability, my goal is to infuse a more eco-conscious
