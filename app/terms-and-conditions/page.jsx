@@ -1,10 +1,11 @@
 import { portfolioFont } from "@/utils/fonts";
 import "./style.css";
 import { Footer } from "@/components";
+import { getApiUrl } from "@/lib/getApiUrl";
 
 const getTnC = async (slug) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/${slug}`, {cache: 'no-store'}
+    `${getApiUrl()}/api/${slug}`, {cache: 'no-store'}
   );
 
   if (!response.ok) {

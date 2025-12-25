@@ -1,7 +1,8 @@
 import { AllProjects, Collections, Main, Footer } from "@/components";
+import { getApiUrl } from "@/lib/getApiUrl";
 
 const getProjects = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api`, {
+  const response = await fetch(`${getApiUrl()}/api`, {
     cache: "no-store",
   });
   if (!response.ok) {

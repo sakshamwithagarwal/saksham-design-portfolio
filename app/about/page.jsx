@@ -1,9 +1,10 @@
 import { Footer } from "@/components";
 import "./about.css";
 import AboutCL from "./AboutCL";
+import { getApiUrl } from "@/lib/getApiUrl";
 
 const getLastPlayed = async () => {
- const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/last-played`, {
+ const response = await fetch(`${getApiUrl()}/api/last-played`, {
     method: "GET",
     cache: "no-store",
   });

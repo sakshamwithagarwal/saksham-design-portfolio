@@ -1,17 +1,22 @@
 import ExpandedCollection from "./ExpandedCollection";
 import { dynamicBlurDataUrl } from "@/lib/dynamicBlurDataUrl";
+import { getApiUrl } from "@/lib/getApiUrl";
 
 const getCollection = async (params) => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/collection/${params.type}`,
-    { cache: "no-store" }
-  );
+  const url = `${getApiUrl()}/api/Collection/${params.type}`;
+  console.log(`Fetching collection from: ${url}`);
+
+  const response = await fetch(url, { cache: "no-store" });
 
   if (!response.ok) {
-    throw new Error(`Error while fetching collection of type: ${params.type}.`);
+    const errorText = await response.text();
+    console.error(`API Error (${response.status}):`, errorText);
+    throw new Error(`Error while fetching collection of type: ${params.type}. Status: ${response.status}`);
   }
 
-  return response.json();
+  const data = await response.json();
+  console.log(`Collection data received:`, data);
+  return data;
 };
 
 // const getResources = async (data) => {
@@ -26,8 +31,10 @@ const getCollection = async (params) => {
 // };
 
 const Page = async ({ params }) => {
+  const collectionType = params.type;
+
   const collection_type = () => {
-    switch (params.type) {
+    switch (collectionType) {
       case "Renders":
         return {
           title: "3D Renders",
@@ -54,18 +61,34 @@ const Page = async ({ params }) => {
         return "";
     }
   };
-  const collectionType = collection_type();
-  const response = await getCollection(params);
-  // const response_ = await getResources(
-  //   response.collections[0].collectionImages
-  // );
+  const collectionTypeInfo = collection_type();
 
-  return (
-    <ExpandedCollection
-      collection={response.collections}
-      type={collectionType}
-    />
-  );
+  try {
+    const response = await getCollection(params);
+
+    // Ensure collections is an array
+    const collections = response?.collections || [];
+
+    if (collections.length === 0) {
+      console.warn(`No collections found for type: ${collectionType}`);
+    }
+
+    return (
+      <ExpandedCollection
+        collection={collections}
+        type={collectionTypeInfo}
+      />
+    );
+  } catch (error) {
+    console.error(`Error in collection page for type ${collectionType}:`, error);
+    // Return empty collection on error
+    return (
+      <ExpandedCollection
+        collection={[]}
+        type={collectionTypeInfo}
+      />
+    );
+  }
 };
 
 export default Page;

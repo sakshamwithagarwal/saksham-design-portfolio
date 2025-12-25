@@ -1,9 +1,10 @@
 import "./project.css";
 import ExpandedProject from "./ExpandedProject";
+import { getApiUrl } from "@/lib/getApiUrl";
 
 async function getProject(slug) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/project/${slug}`,
+    `${getApiUrl()}/api/project/${slug}`,
     { cache: "no-store" }
   );
 

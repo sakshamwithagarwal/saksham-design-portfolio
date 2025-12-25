@@ -1,9 +1,10 @@
 import React from "react";
 import AllProjectsPage from "./AllProjects";
+import { getApiUrl } from "@/lib/getApiUrl";
 
 const getProjects = async () => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/project`, {cache: "no-store"}
+    `${getApiUrl()}/api/project`, { cache: "no-store" }
   );
 
   if (!response.ok) {

@@ -1,10 +1,11 @@
 import { Footer } from "@/components";
 import "./style.css";
 import { portfolioFont } from "@/utils/fonts";
+import { getApiUrl } from "@/lib/getApiUrl";
 
 const getPrivacy = async (slug) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/${slug}`,
+    `${getApiUrl()}/api/${slug}`,
     { cache: "no-store" }
   );
 
