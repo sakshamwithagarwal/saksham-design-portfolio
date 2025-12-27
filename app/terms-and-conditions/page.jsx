@@ -7,8 +7,9 @@ export const dynamic = 'force-dynamic';
 
 const getTnC = async (slug) => {
   try {
+    const baseUrl = await getApiUrl();
     const response = await fetch(
-      `${getApiUrl()}/api/${slug}`, {cache: 'no-store'}
+      `${baseUrl}/api/${slug}`, {cache: 'no-store'}
     );
 
     if (!response.ok) {

@@ -7,7 +7,8 @@ export const dynamic = 'force-dynamic';
 
 const getLastPlayed = async () => {
   try {
-    const response = await fetch(`${getApiUrl()}/api/last-played`, {
+    const baseUrl = await getApiUrl();
+    const response = await fetch(`${baseUrl}/api/last-played`, {
       method: "GET",
       cache: "no-store",
     });

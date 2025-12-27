@@ -5,7 +5,8 @@ import { getApiUrl } from "@/lib/getApiUrl";
 export const dynamic = 'force-dynamic';
 
 const getCollection = async (params) => {
-  const url = `${getApiUrl()}/api/Collection/${params.type}`;
+  const baseUrl = await getApiUrl();
+  const url = `${baseUrl}/api/Collection/${params.type}`;
   console.log(`Fetching collection from: ${url}`);
 
   const response = await fetch(url, { cache: "no-store" });

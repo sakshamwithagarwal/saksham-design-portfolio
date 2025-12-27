@@ -7,8 +7,9 @@ export const dynamic = 'force-dynamic';
 
 const getPrivacy = async (slug) => {
   try {
+    const baseUrl = await getApiUrl();
     const response = await fetch(
-      `${getApiUrl()}/api/${slug}`,
+      `${baseUrl}/api/${slug}`,
       { cache: "no-store" }
     );
 

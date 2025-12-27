@@ -6,8 +6,9 @@ export const dynamic = 'force-dynamic';
 
 async function getProject(slug) {
   try {
+    const baseUrl = await getApiUrl();
     const response = await fetch(
-      `${getApiUrl()}/api/project/${slug}`,
+      `${baseUrl}/api/project/${slug}`,
       { cache: "no-store" }
     );
 

@@ -54,11 +54,12 @@ export async function GET(req, { params }) {
     console.error(`Error stack:`, error.stack);
     return NextResponse.json(
       { 
+        collections: [],
         error: `Failed to fetch collection of ${params?.type}`, 
         details: error.message,
         stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
       },
-      { status: 500 }
+      { status: 200 } // Return 200 with empty array instead of 500
     );
   }
 }
