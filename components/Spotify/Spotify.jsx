@@ -1,8 +1,41 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import "./spotify.css";
 
-const Spotify = ({ albumArt, songURL }) => {
+const Spotify = ({ albumArt: initialAlbumArt, songURL: initialSongURL }) => {
+  const [albumArt, setAlbumArt] = useState(initialAlbumArt);
+  const [songURL, setSongURL] = useState(initialSongURL);
+
+  useEffect(() => {
+    // Fetch fresh data on mount
+    const fetchSpotifyData = async () => {
+      try {
+        const response = await fetch("/api/last-played", {
+          cache: "no-store",
+        });
+        if (response.ok) {
+          const data = await response.json();
+          if (data.albumImageUrl && data.songUrl) {
+            setAlbumArt(data.albumImageUrl);
+            setSongURL(data.songUrl);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching Spotify data:", error);
+      }
+    };
+
+    // Fetch immediately
+    fetchSpotifyData();
+
+    // Then poll every 30 seconds to update
+    const interval = setInterval(fetchSpotifyData, 30000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="now__streaming">
       <Link href={songURL} target="_blank">
