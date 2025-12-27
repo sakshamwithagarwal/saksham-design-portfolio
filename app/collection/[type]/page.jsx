@@ -1,6 +1,7 @@
 import ExpandedCollection from "./ExpandedCollection";
 import { dynamicBlurDataUrl } from "@/lib/dynamicBlurDataUrl";
 import { getApiUrl } from "@/lib/getApiUrl";
+import { notFound } from "next/navigation";
 
 export const dynamic = 'force-dynamic';
 
@@ -61,10 +62,15 @@ const Page = async ({ params }) => {
           subtitle: "Dynamic sketches showcasing product design potential.",
         };
       default:
-        return "";
+        return null;
     }
   };
   const collectionTypeInfo = collection_type();
+
+  // If collection type is invalid, show 404
+  if (!collectionTypeInfo) {
+    notFound();
+  }
 
   try {
     const response = await getCollection(params);
@@ -72,8 +78,10 @@ const Page = async ({ params }) => {
     // Ensure collections is an array
     const collections = response?.collections || [];
 
-    if (collections.length === 0) {
-      console.warn(`No collections found for type: ${collectionType}`);
+    // If no collections found and it's a valid type, still show the page (might be empty)
+    // But if it's an API error (404), show not found
+    if (response?.error && response.error.includes("Failed to fetch")) {
+      notFound();
     }
 
     return (
@@ -84,13 +92,8 @@ const Page = async ({ params }) => {
     );
   } catch (error) {
     console.error(`Error in collection page for type ${collectionType}:`, error);
-    // Return empty collection on error
-    return (
-      <ExpandedCollection
-        collection={[]}
-        type={collectionTypeInfo}
-      />
-    );
+    // If fetch failed completely, show 404
+    notFound();
   }
 };
 

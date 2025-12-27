@@ -1,6 +1,7 @@
 import "./project.css";
 import ExpandedProject from "./ExpandedProject";
 import { getApiUrl } from "@/lib/getApiUrl";
+import { notFound } from "next/navigation";
 
 export const dynamic = 'force-dynamic';
 
@@ -26,7 +27,7 @@ async function getProject(slug) {
 const Project = async ({ params }) => {
   const project = await getProject(params.slug);
   if (!project) {
-    return <div>Project not found</div>;
+    notFound();
   }
   return <ExpandedProject project={project} />;
 };
