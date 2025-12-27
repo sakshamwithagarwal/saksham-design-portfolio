@@ -3,16 +3,23 @@ import "./style.css";
 import { Footer } from "@/components";
 import { getApiUrl } from "@/lib/getApiUrl";
 
+export const dynamic = 'force-dynamic';
+
 const getTnC = async (slug) => {
-  const response = await fetch(
-    `${getApiUrl()}/api/${slug}`, {cache: 'no-store'}
-  );
+  try {
+    const response = await fetch(
+      `${getApiUrl()}/api/${slug}`, {cache: 'no-store'}
+    );
 
-  if (!response.ok) {
-    throw new Error("Error while fetching terms and conditions.");
+    if (!response.ok) {
+      throw new Error("Error while fetching terms and conditions.");
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching terms and conditions:", error);
+    return { term: { content: { html: "" } } };
   }
-
-  return response.json();
 };
 
 const TnC = async () => {

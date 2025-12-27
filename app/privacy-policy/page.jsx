@@ -3,17 +3,24 @@ import "./style.css";
 import { portfolioFont } from "@/utils/fonts";
 import { getApiUrl } from "@/lib/getApiUrl";
 
+export const dynamic = 'force-dynamic';
+
 const getPrivacy = async (slug) => {
-  const response = await fetch(
-    `${getApiUrl()}/api/${slug}`,
-    { cache: "no-store" }
-  );
+  try {
+    const response = await fetch(
+      `${getApiUrl()}/api/${slug}`,
+      { cache: "no-store" }
+    );
 
-  if (!response.ok) {
-    throw new Error("Error while fetching privacy policy.");
+    if (!response.ok) {
+      throw new Error("Error while fetching privacy policy.");
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching privacy policy:", error);
+    return { term: { content: { html: "" } } };
   }
-
-  return response.json();
 };
 
 const PrivacyPolicy = async () => {

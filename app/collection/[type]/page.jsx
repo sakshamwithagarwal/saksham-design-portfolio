@@ -2,6 +2,8 @@ import ExpandedCollection from "./ExpandedCollection";
 import { dynamicBlurDataUrl } from "@/lib/dynamicBlurDataUrl";
 import { getApiUrl } from "@/lib/getApiUrl";
 
+export const dynamic = 'force-dynamic';
+
 const getCollection = async (params) => {
   const url = `${getApiUrl()}/api/Collection/${params.type}`;
   console.log(`Fetching collection from: ${url}`);

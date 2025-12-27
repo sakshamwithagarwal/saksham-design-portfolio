@@ -2,15 +2,22 @@ import React from "react";
 import AllProjectsPage from "./AllProjects";
 import { getApiUrl } from "@/lib/getApiUrl";
 
-const getProjects = async () => {
-  const response = await fetch(
-    `${getApiUrl()}/api/project`, { cache: "no-store" }
-  );
+export const dynamic = 'force-dynamic';
 
-  if (!response.ok) {
-    throw new Error("Error while fetching more projects.");
+const getProjects = async () => {
+  try {
+    const response = await fetch(
+      `${getApiUrl()}/api/project`, { cache: "no-store" }
+    );
+
+    if (!response.ok) {
+      throw new Error("Error while fetching more projects.");
+    }
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return [];
   }
-  return response.json();
 };
 
 const Page = async () => {

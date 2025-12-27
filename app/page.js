@@ -1,14 +1,22 @@
 import { AllProjects, Collections, Main, Footer } from "@/components";
 import { getApiUrl } from "@/lib/getApiUrl";
 
+export const dynamic = 'force-dynamic';
+
 const getProjects = async () => {
-  const response = await fetch(`${getApiUrl()}/api`, {
-    cache: "no-store",
-  });
-  if (!response.ok) {
-    throw new Error("Error while fetching All projects.");
+  try {
+    const response = await fetch(`${getApiUrl()}/api`, {
+      cache: "no-store",
+    });
+    if (!response.ok) {
+      throw new Error("Error while fetching All projects.");
+    }
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    // Return empty array during build or on error
+    return [];
   }
-  return response.json();
 };
 
 const sortByPriority = (data) => {
