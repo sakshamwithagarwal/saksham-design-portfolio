@@ -26,6 +26,17 @@ const ArrowIcon = () => (
 const Footer = () => {
   const [contactCardOpen, setContactCardOpen] = useState(false);
 
+  // Opens the contact card and downloads the vCard so the contact can be saved.
+  const openContactDetails = () => {
+    setContactCardOpen(true);
+    const a = document.createElement("a");
+    a.href = "/saksham-agarwal.vcf";
+    a.download = "saksham-agarwal.vcf";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  };
+
   const linkList = [
     {
       title: "WhatsApp",
@@ -90,7 +101,7 @@ const Footer = () => {
                 <li className="contact-details-item">
                   <button
                     type="button"
-                    onClick={() => setContactCardOpen(true)}
+                    onClick={openContactDetails}
                     aria-haspopup="dialog"
                   >
                     <ArrowIcon />
