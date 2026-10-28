@@ -1,5 +1,5 @@
 'use client'
-import picture from "./about_me.png";
+import picture from "./about-portrait.jpg";
 import { ToolCard } from "@/components";
 import { tools_list } from "@/constants/tools";
 import { motion as m } from "framer-motion";
