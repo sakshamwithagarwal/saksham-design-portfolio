@@ -85,7 +85,7 @@ html[data-theme="dark"] .contact-card__dark {
   right: 4.53%;
   top: calc(50% + 33.39px);
   height: 169.787px;
-  transform: translateY(-50%) scaleX(-1);
+  transform: translateY(-50%);
   pointer-events: none;
 }
 
