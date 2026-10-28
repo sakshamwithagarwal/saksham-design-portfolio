@@ -18,16 +18,8 @@ html[data-theme="dark"] .contact-card__overlay {
   background: rgba(29, 29, 29, 0.4);
 }
 
-/* the site hides the native cursor globally; keep a visible one over the card */
-.contact-card__overlay,
-.contact-card__overlay * {
-  cursor: default;
-}
-
-.contact-card__overlay .contact-card__close,
-.contact-card__overlay .contact-card__details a {
-  cursor: pointer;
-}
+/* No cursor rules here on purpose: the site hides the native cursor globally
+   and draws its own (components/Cursor), which sits above this overlay. */
 
 .contact-card {
   position: relative;
