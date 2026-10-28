@@ -15,7 +15,7 @@
 }
 
 html[data-theme="dark"] .contact-card__overlay {
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(29, 29, 29, 0.4);
 }
 
 /* the site hides the native cursor globally; keep a visible one over the card */
@@ -60,14 +60,14 @@ html[data-theme="dark"] .contact-card__dark {
   display: block;
 }
 
-/* background lines */
+/* background lines + circle. The exported PNGs already carry the design's
+   40% opacity, so no extra opacity here. */
 .contact-card__bg {
   position: absolute;
-  top: -9px;
+  top: 0;
   left: 120px;
-  width: 246px;
-  height: 1761px;
-  opacity: 0.4;
+  width: 247px;
+  height: 285px;
   pointer-events: none;
 }
 

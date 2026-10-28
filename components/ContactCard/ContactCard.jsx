@@ -68,22 +68,22 @@ const ContactCard = ({ isOpen, onClose }) => {
             transition={{ duration: 0.25, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Background grid lines (one asset per theme) */}
+            {/* Background grid lines + circle (one asset per theme) */}
             <div className="contact-card__bg">
               <Image
                 className="contact-card__bg-img contact-card__light"
-                src="/contact-card/bg-light.svg"
+                src="/contact-card/bg-light.png"
                 alt=""
-                width={246}
-                height={1761}
+                width={247}
+                height={285}
                 unoptimized
               />
               <Image
                 className="contact-card__bg-img contact-card__dark"
-                src="/contact-card/bg-dark.svg"
+                src="/contact-card/bg-dark.png"
                 alt=""
-                width={246}
-                height={1761}
+                width={247}
+                height={285}
                 unoptimized
               />
             </div>
