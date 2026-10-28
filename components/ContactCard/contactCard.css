@@ -1,0 +1,180 @@
+/* Contact Details card — from Figma "Portfolio" > Section 1 (light + dark variants) */
+
+.contact-card__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  /* layer blur behind the card */
+  background: rgba(241, 237, 232, 0.35);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+html[data-theme="dark"] .contact-card__overlay {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* the site hides the native cursor globally; keep a visible one over the card */
+.contact-card__overlay,
+.contact-card__overlay * {
+  cursor: default;
+}
+
+.contact-card__overlay .contact-card__close,
+.contact-card__overlay .contact-card__details a {
+  cursor: pointer;
+}
+
+.contact-card {
+  position: relative;
+  width: 486px;
+  height: 285px;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 26px;
+  background: #e5dbd1;
+  color: #2b2b2b;
+  font-weight: 400;
+  line-height: normal;
+}
+
+html[data-theme="dark"] .contact-card {
+  background: #050505;
+  color: #ededed;
+}
+
+/* theme-specific assets: show the light one by default, swap in dark mode */
+.contact-card__dark {
+  display: none;
+}
+
+html[data-theme="dark"] .contact-card__light {
+  display: none;
+}
+
+html[data-theme="dark"] .contact-card__dark {
+  display: block;
+}
+
+/* background lines */
+.contact-card__bg {
+  position: absolute;
+  top: -9px;
+  left: 120px;
+  width: 246px;
+  height: 1761px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.contact-card__bg-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+/* illustration */
+.contact-card__art {
+  position: absolute;
+  left: 56.38%;
+  right: 4.53%;
+  top: calc(50% + 33.39px);
+  height: 169.787px;
+  transform: translateY(-50%) scaleX(-1);
+  pointer-events: none;
+}
+
+.contact-card__art-img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+/* header: name, role and close icon */
+.contact-card__head {
+  position: absolute;
+  top: 23px;
+  left: 22px;
+  right: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-card__name {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 253px;
+}
+
+.contact-card__title {
+  font-size: 24px;
+}
+
+.contact-card__role {
+  font-size: 20px;
+}
+
+/* close (cross) — two rounded bars, as drawn in Figma */
+.contact-card__close {
+  position: relative;
+  flex-shrink: 0;
+  width: 27.6px;
+  height: 27.57px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+}
+
+.contact-card__close:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+.contact-card__close-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 33.268px;
+  height: 5.623px;
+  border: 0.651px solid currentColor;
+  border-radius: 3.905px;
+}
+
+.contact-card__close-bar--a {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.contact-card__close-bar--b {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* phone + email */
+.contact-card__details {
+  position: absolute;
+  left: 22px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 20px;
+}
+
+.contact-card__details a {
+  width: fit-content;
+}
+
+/* desktop / tablet only */
+@media screen and (max-width: 576px) {
+  .contact-card__overlay {
+    display: none;
+  }
+}

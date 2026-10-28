@@ -1,6 +1,7 @@
 export {default as Background} from "./BackgroundStyle/Background"
 export {default as Cursor} from './Cursor/Cursor'
 export {default as Collections} from './Collections/Collections'
+export {default as ContactCard} from './ContactCard/ContactCard'
 export {default as Footer} from './Footer/Footer'
 export {default as Main} from './HeaderComp/Main'
 export {default as Navbar} from './Navbar/Navbar'

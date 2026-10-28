@@ -1,26 +1,44 @@
 "use client";
+import { useState } from "react";
 import { motion as m } from "framer-motion";
 import Link from "next/link";
 import "./footer.css";
 import { portfolioFont } from "@/utils/fonts";
+import ContactCard from "../ContactCard/ContactCard";
+
+const ArrowIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="11"
+    height="11"
+    viewBox="0 0 11 11"
+    fill="none"
+  >
+    <path
+      d="M1 10.27L9.82 1.44995M9.82 1.44995H3.28927M9.82 1.44995V7.96291"
+      stroke="var(--text-main)"
+      strokeWidth="1.6"
+      strokeMiterlimit="10"
+    />
+  </svg>
+);
 
 const Footer = () => {
+  const [contactCardOpen, setContactCardOpen] = useState(false);
+
   const linkList = [
     {
-      title: "Behance",
-      url: "https://www.behance.net/sakshamwithagarwal",
-    },
-    {
-      title: "Instagram",
-      url: "https://www.instagram.com/sakshamwithagarwal",
+      title: "WhatsApp",
+      url: "https://wa.me/919045011502?text=Hi%20Saksham%2C%20I%20saw%20your%20portfolio",
+      newTab: true,
     },
     {
       title: "LinkedIn",
-      url: "https://www.linkedin.com/in/saksham-parag-agarwal-b063711b3",
+      url: "https://www.linkedin.com/in/sakshamwithagarwal/",
     },
     {
       title: "Mail",
-      url: "mailto:contact@sakshamparag.com",
+      url: "mailto:sakshamparag@gmail.com",
     },
   ];
 
@@ -57,25 +75,28 @@ const Footer = () => {
               <ul>
                 {linkList.map((link, idx) => (
                   <li key={idx}>
-                    <Link href={link.url}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="11"
-                        height="11"
-                        viewBox="0 0 11 11"
-                        fill="none"
-                      >
-                        <path
-                          d="M1 10.27L9.82 1.44995M9.82 1.44995H3.28927M9.82 1.44995V7.96291"
-                          stroke="var(--text-main)"
-                          strokeWidth="1.6"
-                          strokeMiterlimit="10"
-                        />
-                      </svg>
+                    <Link
+                      href={link.url}
+                      {...(link.newTab
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      <ArrowIcon />
                       {link.title}
                     </Link>
                   </li>
                 ))}
+                {/* Desktop / tablet only — opens the contact card */}
+                <li className="contact-details-item">
+                  <button
+                    type="button"
+                    onClick={() => setContactCardOpen(true)}
+                    aria-haspopup="dialog"
+                  >
+                    <ArrowIcon />
+                    Contact Details
+                  </button>
+                </li>
               </ul>
             </div>
             <div className="design-details">
@@ -98,6 +119,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <ContactCard
+        isOpen={contactCardOpen}
+        onClose={() => setContactCardOpen(false)}
+      />
     </m.footer>
   );
 };
